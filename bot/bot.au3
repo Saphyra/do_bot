@@ -1,4 +1,5 @@
 #include <MsgBoxConstants.au3>
+#include "general/ImageSearch.au3"
 
 #include "general/functions.au3"
 
@@ -9,6 +10,6 @@ Global Const $FILES_INI_PATH = "data/files.ini"
 
 #include "general/startup.au3"
 
-local $scriptState = $STATE_GUI
+Global $scriptState = $STATE_GUI
 
 #include "gui/gui_main.au3"
