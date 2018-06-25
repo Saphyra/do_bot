@@ -1,3 +1,5 @@
+#include "general/functions.au3"
+
 Global Const $STATE_GUI = 0
 Global Const $STATE_RUN = 1
 

@@ -1,0 +1,3 @@
+Func Close()
+   Exit
+EndFunc
