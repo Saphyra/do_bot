@@ -2,8 +2,7 @@ GUI
     DEV-6
         - Recognize minimap
         - Get edges
-    DEV-7
-        - Restructure: Inclusions contains only functions to call
+    
 Done
     DEV-1
         - Create GUI window
@@ -18,3 +17,5 @@ Done
             - Check source files
     DEV-5
         - Start runnig for pressing Start
+    DEV-7
+        - Restructure: Inclusions contains only functions to call
