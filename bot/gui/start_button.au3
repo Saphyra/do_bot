@@ -8,5 +8,7 @@ Func addStartButton()
    local $id = GUICtrlCreateButton("Start", $left, $top, $width, $height)
    GUICtrlSetFont($id, $fontSize)
 
+   GUICtrlSetOnEvent($id, "startBot")
+
    return $id
 EndFunc

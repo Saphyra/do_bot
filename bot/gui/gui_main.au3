@@ -14,7 +14,3 @@ Global $inputFieldId = addInputField()
 Global $saveButtonId = addSaveButton()
 
 GUISetState(@SW_SHOW, $mainWindowId)
-
-While $scriptState = $STATE_GUI
-   Sleep(100)
-WEnd

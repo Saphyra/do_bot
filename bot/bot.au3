@@ -12,3 +12,15 @@ Global Const $FILES_INI_PATH = "data/files.ini"
 local $scriptState = $STATE_GUI
 
 #include "gui/gui_main.au3"
+
+#include "run/run_main.au3"
+
+idle()
+func idle()
+   While 1
+	  Switch $scriptState
+		 Case $STATE_RUN
+	  EndSwitch
+	  Sleep(100)
+   WEnd
+EndFunc
