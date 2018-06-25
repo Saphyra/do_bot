@@ -1,7 +1,6 @@
 Func addInputField()
    local $value = IniRead("data/settings.ini", "test", "name", "NotFound")
    local $id = GUICtrlCreateInput($value, 0, 0, 70, 20)
-   GUICtrlSetFont($id, 12)
 
    return $id
 EndFunc

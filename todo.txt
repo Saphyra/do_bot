@@ -1,11 +1,14 @@
 GUI
-    DEV-3
-        - Create modifiable settings file
-        - Create input field in GUI window
-        - Modify settings file based on input field
-        
+    
 Done
     DEV-1
         - Create GUI window
     DEV-2
         - Add 'Start' button to GUI window
+    DEV-3
+        - Create modifiable settings file
+        - Create input field in GUI window
+        - Modify settings file based on input field
+    DEV-4
+        - Startup check
+            - Check source files
