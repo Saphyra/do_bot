@@ -1,5 +1,8 @@
 GUI
-    DEV-5
+    DEV-6
+        - Recognize minimap
+        - Get edges
+    
 Done
     DEV-1
         - Create GUI window
@@ -12,3 +15,7 @@ Done
     DEV-4
         - Startup check
             - Check source files
+    DEV-5
+        - Start runnig for pressing Start
+    DEV-7
+        - Restructure: Inclusions contains only functions to call

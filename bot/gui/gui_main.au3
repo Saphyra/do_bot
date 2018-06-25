@@ -3,18 +3,21 @@
 #include "start_button.au3"
 #include "input_field.au3"
 
-Opt("GUIOnEventMode", 1)
+Func createGui()
+   Opt("GUIOnEventMode", 1)
 
-Global Const $guiWidth = 500
-Global Const $guiHeight = 500
+   Global Const $guiWidth = 500
+   Global Const $guiHeight = 500
 
-Global $mainWindowId = createMainWindow()
-Global $startButtonId = addStartButton()
-Global $inputFieldId = addInputField()
-Global $saveButtonId = addSaveButton()
+   Global $mainWindowId = createMainWindow()
+   Global $startButtonId = addStartButton()
+   Global $inputFieldId = addInputField()
+   Global $saveButtonId = addSaveButton()
 
-GUISetState(@SW_SHOW, $mainWindowId)
+   GUISetState(@SW_SHOW, $mainWindowId)
+EndFunc
 
-While $scriptState = $STATE_GUI
-   Sleep(100)
-WEnd
+Func returnToGui()
+   $scriptState = $STATE_GUI
+   GUISetState(@SW_SHOW, $mainWindowId)
+EndFunc

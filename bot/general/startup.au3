@@ -1,3 +1,5 @@
 #include "file_check.au3"
 
-checkFiles()
+Func startUp()
+   checkFiles()
+EndFunc
