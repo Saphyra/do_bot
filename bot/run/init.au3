@@ -11,7 +11,7 @@ Func recognizeMinimap()
    local $bottomRightCornerFile = getFilePath("mini_map_bottom_right_corner")
    local $bottomRightCornerX, $bottomRightCornerY
 
-   If Not _ImageSearch($miniMapFile, 0, $miniMapX, $miniMapY, 50) Then
+   If Not _ImageSearch($miniMapFile, 0, $miniMapX, $miniMapY, 150) Then
 	  MsgBox(0, "Not found", "MiniMap not found.")
 	  returnToGui()
 	  Return
