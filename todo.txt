@@ -1,9 +1,4 @@
 GUI
-    DEV-8
-        - Init
-            - Close all tabs
-            - Open minimap
-            - Relocate it
     DEV-9
         - Logging
 Done
@@ -25,3 +20,11 @@ Done
         - Get edges
     DEV-7
         - Restructure: Inclusions contains only functions to call
+    DEV-8
+        - Init
+            - Close all tabs
+            - Open minimap
+            - Relocate it
+            - Initialize minimap edges
+        - Basic test
+            - Move among random coordinates in the minimap

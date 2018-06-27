@@ -23,6 +23,7 @@ func idle()
    While 1
 	  Switch $scriptState
 		 Case $STATE_RUN
+			runProcess()
 	  EndSwitch
 	  Sleep(100)
    WEnd

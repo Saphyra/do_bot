@@ -1,4 +1,4 @@
-Func Close()
+Func close()
    Exit
 EndFunc
 
