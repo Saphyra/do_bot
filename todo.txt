@@ -1,6 +1,9 @@
 GUI
     DEV-9
         - Logging
+    
+    DEV-11
+        - Refactor and clean code
 Done
     DEV-1
         - Create GUI window
@@ -28,3 +31,7 @@ Done
             - Initialize minimap edges
         - Basic test
             - Move among random coordinates in the minimap
+    DEV-10
+        - Check moving
+        - Choose new direction when stop
+        - Max move time set
