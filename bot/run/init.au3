@@ -34,7 +34,7 @@ Func recognizeMinimap()
 	  Return
    EndIf
 
-   ConsoleWrite("Resize button coordinates: " & $resizeButtonX & "/" & $resizeButtonY)
+   ConsoleWrite("\nResize button coordinates: " & $resizeButtonX & "/" & $resizeButtonY)
 
 
    local $x3 = $miniMapX - 50
@@ -73,7 +73,7 @@ Func recognizeMinimap()
    Until Not $needResize Or $attempts = 10
 
    If $needResize Then
-	  MsgBox(0, "Not found", "MiniMap not found.")
+	  MsgBox(0, "Not found", "Edges of MiniMap not found.")
 	  returnToGui()
 	  Return
    EndIf

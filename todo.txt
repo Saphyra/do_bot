@@ -1,5 +1,4 @@
 GUI
-    
     DEV-8
         - Init
             - Close all tabs
