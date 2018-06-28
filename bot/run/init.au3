@@ -42,10 +42,11 @@ Func resizeMiniMap()
    EndIf
 
    local $x1 = $miniMapX + 150
-   local $y1 = $miniMapY + 20
-   local $x2 = $miniMapX + 1000
-   local $y2 = $miniMapY + 75
+   local $y1 = $miniMapY
+   local $x2 = $miniMapX + 200
+   local $y2 = $miniMapY + 40
 
+;~ Testing button pos area
 ;~    MouseMove($x1, $y1, 1000)
 ;~    Sleep(1000)
 
@@ -85,6 +86,6 @@ Func relocateMiniMap()
    MouseMove($miniMapX + 20, $miniMapY)
    Sleep(500)
    MouseDown("left")
-   MouseMove(@DesktopWidth - 230, 150)
+   MouseMove(@DesktopWidth - 185, 150)
    MouseUp("left")
 EndFunc

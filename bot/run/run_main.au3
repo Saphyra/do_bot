@@ -1,14 +1,14 @@
 #include "init.au3"
 
-Global Const $mmx1 = @DesktopWidth - 230
-Global Const $mmy1 = 205
+Global Const $mmx1 = @DesktopWidth - 200
+Global Const $mmy1 = 195
 Global Const $mmx2 = @DesktopWidth - 30
-Global Const $mmy2 = 340
+Global Const $mmy2 = 300
 
-Global Const $ix1 = @DesktopWidth - 360
-Global Const $iy1 = 170
-Global Const $ix2 = @DesktopWidth - 60
-Global Const $iy2 = 200
+Global Const $ix1 = @DesktopWidth - 120
+Global Const $iy1 = 160
+Global Const $ix2 = @DesktopWidth - 50
+Global Const $iy2 = 190
 
 Global $moveStarted
 
@@ -17,7 +17,22 @@ Func startBot()
    HotKeySet("{ESC}", "returnToGui")
 
    init()
+   checkCoordinates()
    $scriptState = $STATE_RUN
+EndFunc
+
+Func checkCoordinates()
+;~    MouseClick("left", $mmx1, $mmy1)
+;~    Sleep(3000)
+
+;~    MouseClick("left", $mmx2, $mmy2)
+;~    Sleep(3000)
+
+   MouseMove($ix1, $iy1)
+   Sleep(3000)
+
+   MouseMove($ix2, $iy2)
+   Sleep(3000)
 EndFunc
 
 Func runProcess()
