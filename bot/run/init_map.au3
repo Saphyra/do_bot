@@ -32,7 +32,7 @@ Func resizeMiniMap()
 
    local $x1 = $miniMapX + 150
    local $y1 = $miniMapY
-   local $x2 = $miniMapX + 200
+   local $x2 = $miniMapX + 500
    local $y2 = $miniMapY + 40
 
 ;~ Testing button pos area
