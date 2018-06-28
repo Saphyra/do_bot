@@ -3,7 +3,7 @@ Func checkFiles()
    local $i
    For $i = 1 To UBound($ini) - 1
 	  If Not FileExists($ini[$i][1]) Then
-		 MsgBox(0, "File not found.", $ini[$i][1] & " not found.", 5)
+		 MsgBox(0, "File not found.", $ini[$i][1] & " not found.")
 		 Close()
 	  EndIf
    Next

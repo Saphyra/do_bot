@@ -3,11 +3,11 @@
 #include "start_button.au3"
 #include "input_field.au3"
 
+Global Const $guiWidth = 500
+Global Const $guiHeight = 500
+
 Func createGui()
    Opt("GUIOnEventMode", 1)
-
-   Global Const $guiWidth = 500
-   Global Const $guiHeight = 500
 
    Global $mainWindowId = createMainWindow()
    Global $startButtonId = addStartButton()

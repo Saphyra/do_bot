@@ -3,8 +3,6 @@ GUI
         - Logging
             - Logging levels
             - Logging to files
-    DEV-11
-        - Refactor and clean code
                 
 Done
     DEV-1
@@ -37,6 +35,8 @@ Done
         - Check moving
         - Choose new direction when stop
         - Max move time set
+    DEV-11
+        - Refactor and clean code
     DEV-12
         - Create sorthand click functions
             - MouseClick
