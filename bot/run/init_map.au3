@@ -44,7 +44,7 @@ Func resizeMiniMap()
 
    local $i, $x, $y
    For $i = 1 To 5
-	  If Not _ImageSearchArea($resizeButtonFile, 1, $x1, $y1, $x2, $y2, $resizeButtonX, $resizeButtonY, 50) Then
+	  If Not _ImageSearchArea($resizeButtonFile, 1, $x1, $y1, $x2, $y2, $resizeButtonX, $resizeButtonY, 150) Then
 		 MsgBox(0, "Not found", "MiniMap resize button not found.")
 		 returnToGui()
 		 Return
