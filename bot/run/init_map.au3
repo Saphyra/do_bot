@@ -58,6 +58,7 @@ Func resizeMiniMap()
 	  $oldResizeButtonY = $resizeButtonY
 
 	  Click($resizeButtonX, $resizeButtonY)
+	  Sleep(500)
    Next
 EndFunc
 
