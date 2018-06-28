@@ -28,17 +28,17 @@ Func checkCoordinates()
 ;~    MouseClick("left", $mmx2, $mmy2)
 ;~    Sleep(3000)
 
-   MouseMove($ix1, $iy1)
-   Sleep(3000)
+;~    MouseMove($ix1, $iy1)
+;~    Sleep(3000)
 
-   MouseMove($ix2, $iy2)
-   Sleep(3000)
+;~    MouseMove($ix2, $iy2)
+;~    Sleep(3000)
 EndFunc
 
 Func runProcess()
    local $x = Random($mmx1, $mmx2)
    local $y = Random($mmy1, $mmy2)
-   MouseClick("left", $x, $y)
+   Click($x, $y)
    $moveStarted = getTimeStamp()
 
    Sleep(500)

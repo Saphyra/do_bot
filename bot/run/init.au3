@@ -19,7 +19,7 @@ Func openMiniMap()
    local $miniMapMenuButtonFile = getFilePath("mini_map_menu_button")
    local $x, $y
    if _ImageSearch($miniMapMenuButtonFile, 1, $x, $y, 50) Then
-	  MouseClick("left", $x, $y)
+	  Click($x, $y)
 	  Sleep(1000)
    Else
 	  MsgBox(0, "Error", "Minimap menu button not found")
@@ -68,8 +68,7 @@ Func resizeMiniMap()
 	  $oldResizeButtonX = $resizeButtonX
 	  $oldResizeButtonY = $resizeButtonY
 
-	  MouseClick("left", $resizeButtonX, $resizeButtonY, 1, 0)
-	  MouseMove(0, 0)
+	  Click($resizeButtonX, $resizeButtonY)
    Next
 EndFunc
 
@@ -83,9 +82,10 @@ Func relocateMiniMap()
 	  Return
    EndIf
 
-   MouseMove($miniMapX + 20, $miniMapY)
+   MouseMove($miniMapX + 20, $miniMapY, 0)
    Sleep(500)
    MouseDown("left")
    MouseMove(@DesktopWidth - 185, 150)
    MouseUp("left")
+   MouseMove(0,0,0)
 EndFunc
