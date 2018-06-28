@@ -5,12 +5,6 @@ GUI
             - Logging to files
     DEV-11
         - Refactor and clean code
-    DEV-12
-        - Create sorthand click functions
-            - MouseClick
-                Parameters: x, y
-                Calls MouseClick with default values
-                Calls MouseMove(0, 0, 0)
                 
 Done
     DEV-1
@@ -43,5 +37,11 @@ Done
         - Check moving
         - Choose new direction when stop
         - Max move time set
+    DEV-12
+        - Create sorthand click functions
+            - MouseClick
+                Parameters: x, y
+                Calls MouseClick with default values
+                Calls MouseMove(0, 0, 0)
     DEV-13
         - Redefine according to new screen settings
