@@ -1,6 +1,7 @@
 Func initPet()
    openPetWindow()
    relocatePetWindow()
+   turnOnPet()
 EndFunc
 
 Func openPetWindow()
@@ -32,4 +33,33 @@ Func relocatePetWindow()
    MouseMove(150, 150)
    MouseUp("left")
    MouseMove(0,0,0)
+EndFunc
+
+Func turnOnPet()
+   $onFile = getFilePath("pet_is_on")
+   local $onx, $ony
+
+   local $x1 = 100
+   local $y1 = 230
+   local $x2 = 160
+   local $y2 = 275
+
+;~ Test pet activate button search area
+;~    MouseMove($x1, $y1)
+;~    Sleep(3000)
+
+;~    MouseMove($x2, $y2)
+;~    Sleep(3000)
+
+   If Not _ImageSearchArea($onFile, 1, $x1, $y1, $x2, $y2, $onx, $ony, 150) Then
+	  $turnOnFile = getFilePath("pet_turn_on")
+	  local $tx, $ty
+
+	  If _ImageSearchArea($turnOnFile, 1, $x1, $y1, $x2, $y2, $onx, $ony, 150) Then
+		 Click($onx, $ony)
+	  Else
+		 MsgBox(0, "Error", "Pet turn on button not found.")
+		 returnToGui()
+	  EndIf
+   EndIf
 EndFunc
