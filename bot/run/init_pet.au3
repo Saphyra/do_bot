@@ -2,6 +2,8 @@ Func initPet()
    openPetWindow()
    relocatePetWindow()
    turnOnPet()
+   openPetGearMenu()
+   activateCollectorGear()
 EndFunc
 
 Func openPetWindow()
@@ -61,5 +63,38 @@ Func turnOnPet()
 		 MsgBox(0, "Error", "Pet turn on button not found.")
 		 returnToGui()
 	  EndIf
+   EndIf
+EndFunc
+
+Func openPetGearMenu()
+   local $file = getFilePath("pet_gear_list_button")
+   local $x, $y
+
+   local $x1 = 350
+   local $y1 = 245
+   local $x2 = 365
+   local $y2 = 260
+
+   If _ImageSearchArea($file, 1, $x1, $y1, $x2, $y2, $x, $y, 150) Then
+	  Click($x, $y)
+	  Sleep(500)
+   Else
+	  ConsoleWrite("Pet gear list button not found" & @LF)
+   EndIf
+EndFunc
+
+Func activateCollectorGear()
+   local $file = getFilePath("pet_collector_gear")
+   local $x, $y
+
+   local $x1 = 210
+   local $y1 = 260
+   local $x2 = 355
+   local $y2 = @DesktopHeight
+
+   If _ImageSearchArea($file, 1, $x1, $y1, $x2, $y2, $x, $y, 150) Then
+	  Click($x, $y)
+   Else
+	  ConsoleWrite("Pet Collector Gear Not Found" & @LF)
    EndIf
 EndFunc
