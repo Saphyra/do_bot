@@ -3,6 +3,7 @@ DllCall("User32.dll","bool","SetProcessDPIAware")
 
 #include <MsgBoxConstants.au3>
 #include "general/ImageSearch.au3"
+#include "general/logger.au3"
 
 #include "general/functions.au3"
 #include "general/startup.au3"

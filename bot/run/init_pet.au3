@@ -63,6 +63,8 @@ Func turnOnPet()
 		 MsgBox(0, "Error", "Pet turn on button not found.")
 		 returnToGui()
 	  EndIf
+   Else
+	  writeLog("Pet is currently turned on.", $LEVEL_INFO)
    EndIf
 EndFunc
 
@@ -79,7 +81,7 @@ Func openPetGearMenu()
 	  Click($x, $y)
 	  Sleep(500)
    Else
-	  ConsoleWrite("Pet gear list button not found" & @LF)
+	  writeLog("Pet gear list button not found", $LEVEL_WARN)
    EndIf
 EndFunc
 
@@ -95,6 +97,6 @@ Func activateCollectorGear()
    If _ImageSearchArea($file, 1, $x1, $y1, $x2, $y2, $x, $y, 150) Then
 	  Click($x, $y)
    Else
-	  ConsoleWrite("Pet Collector Gear Not Found" & @LF)
+	  writeLog("Pet Collector Gear Not Found", $LEVEL_WARN)
    EndIf
 EndFunc
