@@ -9,6 +9,22 @@ GUI
         - Relocate PET window
     DEV-16
         - Activate PET and collector gear
+    DEV-17
+        - Recognize enemy cbs exists on the map
+        - Configurable behavior:
+            - Ignore
+            - Go to other map
+            - Turn off PET
+    DEV-18
+        - Collect boxes by hand
+    DEV-19
+        - Repair upon death
+            - Configurable times
+    DEV-20
+        - Repair pet
+            - Configurable times
+    DEV-21
+        - Settings page on GUI
                 
 Done
     DEV-1
