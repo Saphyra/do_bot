@@ -3,8 +3,6 @@ GUI
         - Logging
             - Logging levels
             - Logging to files
-    DEV-14
-        - Open pet window
     DEV-15
         - Relocate PET window
     DEV-16
@@ -25,6 +23,8 @@ GUI
             - Configurable times
     DEV-21
         - Settings page on GUI
+    DEV-22
+        - Check MiniMap position when Move
                 
 Done
     DEV-1
@@ -67,3 +67,5 @@ Done
                 Calls MouseMove(0, 0, 0)
     DEV-13
         - Redefine according to new screen settings
+    DEV-14
+        - Open pet window

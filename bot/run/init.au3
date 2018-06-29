@@ -1,8 +1,10 @@
 #include "init_map.au3"
+#include "init_pet.au3"
 
 Func init()
    closeTabs()
    initMiniMap()
+   initPet()
 EndFunc
 
 Func closeTabs()
