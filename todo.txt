@@ -3,8 +3,6 @@ GUI
         - Logging
             - Logging levels
             - Logging to files
-    DEV-15
-        - Relocate PET window
     DEV-16
         - Activate PET and collector gear
     DEV-17
@@ -69,3 +67,5 @@ Done
         - Redefine according to new screen settings
     DEV-14
         - Open pet window
+    DEV-15
+        - Relocate PET window
