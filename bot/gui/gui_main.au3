@@ -19,6 +19,7 @@ EndFunc
 
 Func returnToGui()
    HotKeySet("{ESC}", "close")
+   HotKeySet("{F1}")
    $scriptState = $STATE_GUI
    GUISetState(@SW_SHOW, $mainWindowId)
 EndFunc

@@ -10,6 +10,7 @@ GUI
     DEV-19
         - Repair upon death
             - Configurable times
+            - Configurable location (Base, gate, spot)
     DEV-20
         - Repair pet
             - Configurable times
@@ -24,6 +25,12 @@ GUI
         - Configurable
     DEV-25
         - Write proper log messages
+    DEV-26
+        - Check pet status
+        - Repair if killed
+            - Configurable times
+    DWV-27
+        - Pause bot without returning to GUI
                 
 Done
     DEV-1
