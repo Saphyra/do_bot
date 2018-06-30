@@ -7,6 +7,7 @@ Global Const $guiWidth = 500
 Global Const $guiHeight = 500
 
 Func createGui()
+   writeLog("Creating GUI", $LEVEL_INFO)
    Opt("GUIOnEventMode", 1)
 
    Global $mainWindowId = createMainWindow()
@@ -14,10 +15,12 @@ Func createGui()
    Global $inputFieldId = addInputField()
    Global $saveButtonId = addSaveButton()
 
-   GUISetState(@SW_SHOW, $mainWindowId)
+   returnToGui()
 EndFunc
 
 Func returnToGui()
+   writeLog("GUI window opened.", $LEVEL_INFO)
+
    HotKeySet("{ESC}", "close")
    HotKeySet("{F1}")
    $scriptState = $STATE_GUI

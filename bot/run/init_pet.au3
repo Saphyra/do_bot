@@ -1,4 +1,12 @@
+Global Const $PET_FILE = getFilePath("pet")
+Global Const $PET_COLLECTOR_GEAR_FILE = getFilePath("pet_collector_gear")
+Global Const $PET_GEAR_LIST_BUTTON_FILE = getFilePath("pet_gear_list_button")
+Global Const $PET_IS_ON_FILE = getFilePath("pet_is_on")
+Global Const $PET_MENU_BUTTON_FILE = getFilePath("pet_menu_button")
+Global Const $PET_TURN_ON_FILE = getFilePath("pet_turn_on")
+
 Func initPet()
+   writeLog("Initializing PET...", $LEVEL_INFO)
    openPetWindow()
    relocatePetWindow()
    turnOnPet()
@@ -7,23 +15,25 @@ Func initPet()
 EndFunc
 
 Func openPetWindow()
-   local $file = getFilePath("pet_menu_button")
+   writeLog("Opening PET window", $LEVEL_INFO)
    local $x, $y
 
-   if _ImageSearch($file, 1, $x, $y, 50) Then
+   if _ImageSearch($PET_MENU_BUTTON_FILE, 1, $x, $y, 50) Then
 	  Click($x, $y)
 	  Sleep(1000)
    Else
+	  writeLog("PET menu button not found.", $LEVEL_ERROR)
 	  MsgBox(0, "Error", "Pet menu button not found")
 	  returnToGui()
    EndIf
 EndFunc
 
 Func relocatePetWindow()
-   local $file = getFilePath("pet")
+   writeLog("Relocating PET window...", $LEVEL_INFO)
    local $x, $y
 
-   If Not _ImageSearch($file, 0, $x, $y, 150) Then
+   If Not _ImageSearch($PET_FILE, 0, $x, $y, 150) Then
+	  writeLog("PET not found.", $LEVEL_ERROR)
 	  MsgBox(0, "Error", "Pet not found.")
 	  returnToGui()
 	  Return
@@ -38,7 +48,7 @@ Func relocatePetWindow()
 EndFunc
 
 Func turnOnPet()
-   $onFile = getFilePath("pet_is_on")
+   writeLog("Turning on PET...", $LEVEL_INFO)
    local $onx, $ony
 
    local $x1 = 100
@@ -46,30 +56,23 @@ Func turnOnPet()
    local $x2 = 160
    local $y2 = 275
 
-;~ Test pet activate button search area
-;~    MouseMove($x1, $y1)
-;~    Sleep(3000)
-
-;~    MouseMove($x2, $y2)
-;~    Sleep(3000)
-
-   If Not _ImageSearchArea($onFile, 1, $x1, $y1, $x2, $y2, $onx, $ony, 150) Then
-	  $turnOnFile = getFilePath("pet_turn_on")
+   If Not _ImageSearchArea($PET_IS_ON_FILE, 1, $x1, $y1, $x2, $y2, $onx, $ony, 150) Then
 	  local $tx, $ty
 
-	  If _ImageSearchArea($turnOnFile, 1, $x1, $y1, $x2, $y2, $onx, $ony, 150) Then
+	  If _ImageSearchArea($PET_TURN_ON_FILE, 1, $x1, $y1, $x2, $y2, $onx, $ony, 150) Then
 		 Click($onx, $ony)
 	  Else
+		 writeLog("PET turn on button not found.", $LEVEL_ERROR)
 		 MsgBox(0, "Error", "Pet turn on button not found.")
 		 returnToGui()
 	  EndIf
    Else
-	  writeLog("Pet is currently turned on.", $LEVEL_INFO)
+	  writeLog("Pet is currently turned on.", $LEVEL_WARN)
    EndIf
 EndFunc
 
 Func openPetGearMenu()
-   local $file = getFilePath("pet_gear_list_button")
+   writeLog("Opening PET gear menu...", $LEVEL_INFO)
    local $x, $y
 
    local $x1 = 350
@@ -77,7 +80,7 @@ Func openPetGearMenu()
    local $x2 = 365
    local $y2 = 260
 
-   If _ImageSearchArea($file, 1, $x1, $y1, $x2, $y2, $x, $y, 150) Then
+   If _ImageSearchArea($PET_GEAR_LIST_BUTTON_FILE, 1, $x1, $y1, $x2, $y2, $x, $y, 150) Then
 	  Click($x, $y)
 	  Sleep(500)
    Else
@@ -86,7 +89,7 @@ Func openPetGearMenu()
 EndFunc
 
 Func activateCollectorGear()
-   local $file = getFilePath("pet_collector_gear")
+   writeLog("Activating collector gear...", $LEVEL_INFO)
    local $x, $y
 
    local $x1 = 210
@@ -94,7 +97,7 @@ Func activateCollectorGear()
    local $x2 = 355
    local $y2 = @DesktopHeight
 
-   If _ImageSearchArea($file, 1, $x1, $y1, $x2, $y2, $x, $y, 150) Then
+   If _ImageSearchArea($PET_COLLECTOR_GEAR_FILE, 1, $x1, $y1, $x2, $y2, $x, $y, 150) Then
 	  Click($x, $y)
    Else
 	  writeLog("Pet Collector Gear Not Found", $LEVEL_WARN)

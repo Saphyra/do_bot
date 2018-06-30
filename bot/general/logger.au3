@@ -3,6 +3,8 @@ Global Const $LEVEL_INFO = "info"
 Global Const $LEVEL_WARN = "warn"
 Global Const $LEVEL_ERROR = "error"
 
+Global Const $SETTINGS_INI_FILE = getFilePath("settings_ini")
+
 Func writeLog($message, $level = $LEVEL_INFO)
    If Not isLogLevelEnabled($level) Then
 	  Return
@@ -43,5 +45,5 @@ Func isLogToFileEnabled($level)
 EndFunc
 
 Func readLogProperty($property, $default = 1)
-   Return IniRead(getFilePath("settings_ini"), "log", $property, $default)
+   Return IniRead($SETTINGS_INI_FILE, "log", $property, $default)
 EndFunc

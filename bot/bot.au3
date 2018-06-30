@@ -16,11 +16,15 @@ Global Const $STATE_GUI = 0
 Global Const $STATE_RUN = 1
 local $scriptState = $STATE_GUI
 
+writeLog("Starting...", $LEVEL_INFO)
+
 startUp()
 createGui()
 
 idle()
 func idle()
+   writeLog("Entering idle state", $LEVEL_INFO)
+
    While 1
 	  Switch $scriptState
 		 Case $STATE_RUN

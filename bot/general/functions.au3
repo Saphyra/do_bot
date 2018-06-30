@@ -1,4 +1,6 @@
 Func Click($x, $y)
+   writeLog("Clicking to coordinates " & $x & "/" & $y, $LEVEL_DEBUG)
+
    MouseClick("left", $x, $y, 1, 0)
    MouseMove(0, 0, 0)
 EndFunc

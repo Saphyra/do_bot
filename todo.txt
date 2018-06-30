@@ -23,14 +23,12 @@ GUI
     DEV-24
         - Delete log files upon startup
         - Configurable
-    DEV-25
-        - Write proper log messages
     DEV-26
         - Check pet status
         - Repair if killed
             - Configurable times
-    DWV-27
-        - Pause bot without returning to GUI
+    DEV-28
+        - Return from init mode upon exception
                 
 Done
     DEV-1
@@ -83,3 +81,7 @@ Done
         - Relocate PET window
     DEV-16
         - Activate PET and collector gear
+    DEV-25
+        - Write proper log messages
+    DEV-27
+        - Pause bot without returning to GUI

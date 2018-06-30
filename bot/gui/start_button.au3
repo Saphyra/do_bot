@@ -1,4 +1,6 @@
 Func addStartButton()
+   writeLog("Adding start button to main window", $LEVEL_INFO)
+
    local $left = $guiWidth - 100
    local $top = $guiHeight - 30
    local $width = 100
