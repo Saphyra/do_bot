@@ -1,7 +1,7 @@
 Global Const $MINI_MAP_NO_MOVE_FILE = getFilePath("mini_map_no_move")
 
 ;~ MiniMap move edges
-Global Const $mmx1 = @DesktopWidth - 200
+Global Const $mmx1 = @DesktopWidth - 190
 Global Const $mmy1 = 195
 Global Const $mmx2 = @DesktopWidth - 50
 Global Const $mmy2 = 300

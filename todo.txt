@@ -14,8 +14,6 @@ GUI
     DEV-20
         - Repair pet
             - Configurable times
-    DEV-21
-        - Settings page on GUI
     DEV-22
         - Check MiniMap position when Move
     DEV-23
@@ -81,6 +79,8 @@ Done
         - Relocate PET window
     DEV-16
         - Activate PET and collector gear
+    DEV-21
+        - Settings page on GUI
     DEV-25
         - Write proper log messages
     DEV-27

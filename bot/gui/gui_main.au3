@@ -1,19 +1,18 @@
 #include <GUIConstantsEx.au3>
 #include "main_window.au3"
-#include "start_button.au3"
-#include "input_field.au3"
+#include "main_tab.au3"
+#include "log_settings.au3"
 
-Global Const $guiWidth = 500
-Global Const $guiHeight = 500
+Global Const $GUI_WIDTH = 500
+Global Const $GUI_HEIGHT = 500
 
 Func createGui()
    writeLog("Creating GUI", $LEVEL_INFO)
    Opt("GUIOnEventMode", 1)
 
-   Global $mainWindowId = createMainWindow()
-   Global $startButtonId = addStartButton()
-   Global $inputFieldId = addInputField()
-   Global $saveButtonId = addSaveButton()
+   createMainWindow()
+   createMainTab()
+   createSettingsTab()
 
    returnToGui()
 EndFunc

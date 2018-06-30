@@ -2,6 +2,8 @@
 DllCall("User32.dll","bool","SetProcessDPIAware")
 
 #include <MsgBoxConstants.au3>
+#include <StaticConstants.au3>
+
 #include "general/ImageSearch.au3"
 #include "general/logger.au3"
 
@@ -11,6 +13,8 @@ DllCall("User32.dll","bool","SetProcessDPIAware")
 #include "gui/gui_main.au3"
 
 #include "run/run_main.au3"
+
+Global Const $SETTINGS_INI_FILE = getFilePath("settings_ini")
 
 Global Const $STATE_GUI = 0
 Global Const $STATE_RUN = 1
