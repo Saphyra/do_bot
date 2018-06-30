@@ -14,5 +14,5 @@ Func closeTabs()
 
    MouseClick("left", @DesktopWidth / 2, @DesktopHeight / 2)
    Send("h")
-   Sleep(1000)
+   Sleep(1500)
 EndFunc

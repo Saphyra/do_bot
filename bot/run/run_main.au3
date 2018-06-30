@@ -1,7 +1,7 @@
 #include "init.au3"
 #include "move.au3"
 
-Global $runPaused = false
+Global $runPaused = False
 
 Func startBot()
    writeLog("Starting bot", $LEVEL_INFO)
@@ -12,13 +12,14 @@ Func startBot()
 
    init()
 
-   $runPaused = false
+   $runPaused = False
    $scriptState = $STATE_RUN
 EndFunc
 
 Func runProcess()
-   If $runPaused Then
+   If $runPaused = True Then
 	  writeLog("Bot is paused.", $LEVEL_DEBUG)
+	  Sleep(1000)
 	  Return
    EndIf
 
@@ -31,13 +32,13 @@ EndFunc
 Func resumeRun()
    writeLog("The bot is continuing the run.", $LEVEL_INFO)
 
-   $runPaused = True
+   $runPaused = False
    HotKeySet("{F1}", "pauseRun")
 EndFunc
 
 Func pauseRun()
    writeLog("The bot is paused.", $LEVEL_INFO)
 
-   $runPaused = False
+   $runPaused = True
    HotKeySet("{F1}", "resumeRun")
 EndFunc
