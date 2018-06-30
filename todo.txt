@@ -16,8 +16,6 @@ GUI
             - Configurable times
     DEV-22
         - Check MiniMap position when Move
-    DEV-23
-        - Log level settings
     DEV-24
         - Delete log files upon startup
         - Configurable
@@ -81,6 +79,8 @@ Done
         - Activate PET and collector gear
     DEV-21
         - Settings page on GUI
+    DEV-23
+        - Log level settings
     DEV-25
         - Write proper log messages
     DEV-27
