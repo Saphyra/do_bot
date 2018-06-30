@@ -288,6 +288,8 @@ Func saveLogSettings()
 
 
    saveLogSettingsToFile("delete_upon_start", GUICtrlRead($SHOULD_DELETE_LOG_FILES_ID))
+
+   MsgBox(0, "Saved", "Settings saved.", 5)
 EndFunc
 
 Func saveLogSettingsToFile($name, $value)
