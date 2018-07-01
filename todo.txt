@@ -7,23 +7,18 @@ GUI
             - Turn off PET
     DEV-18
         - Collect boxes by hand
-    DEV-19
-        - Repair upon death
-            - Configurable times
-            - Configurable location (Base, gate, spot)
-    DEV-20
-        - Repair pet
-            - Configurable times
     DEV-22
         - Check MiniMap position when Move
-    DEV-26
-        - Check pet status
-        - Repair if killed
-            - Configurable times
     DEV-28
         - Return from init mode upon exception
     DEV-29
         - Gui settings page for death/petdeath
+    DEV-30
+        - Block business actions when needed
+            - Ship dead
+            - Returned to gui
+    DEV-31
+        - LogOut if PET not repairable
                 
 Done
     DEV-1
@@ -76,6 +71,13 @@ Done
         - Relocate PET window
     DEV-16
         - Activate PET and collector gear
+    DEV-19
+        - Repair upon death
+            - Configurable times
+            - Configurable location (Base, gate, spot)
+    DEV-20
+        - Repair pet
+            - Configurable times
     DEV-21
         - Settings page on GUI
     DEV-23
@@ -85,5 +87,10 @@ Done
         - Configurable
     DEV-25
         - Write proper log messages
+    DEV-26 (Done with: DEV-20)
+        - Check pet status
+        - Repair if killed
+            - Configurable times
     DEV-27
         - Pause bot without returning to GUI
+    

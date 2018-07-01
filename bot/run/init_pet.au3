@@ -1,14 +1,29 @@
 Global Const $PET_FILE = getFilePath("pet")
 Global Const $PET_COLLECTOR_GEAR_FILE = getFilePath("pet_collector_gear")
+Global Const $PET_DESTROYED_BUTTON_FILE = getFilePath("pet_destroyed_button")
 Global Const $PET_GEAR_LIST_BUTTON_FILE = getFilePath("pet_gear_list_button")
 Global Const $PET_IS_ON_FILE = getFilePath("pet_is_on")
 Global Const $PET_MENU_BUTTON_FILE = getFilePath("pet_menu_button")
 Global Const $PET_TURN_ON_FILE = getFilePath("pet_turn_on")
 
-Func initPet()
+Global Const $REPAIR_PET_ENABLED = IniRead($SETTINGS_INI_FILE, "pet", "repair_pet", $GUI_CHECKED)
+Global Const $MAX_PET_DEATH_COUNT = IniRead($SETTINGS_INI_FILE, "pet", "max_pet_death_count", 0)
+
+Global Const $PET_ACTIVATE_X1 = 100
+Global Const $PET_ACTIVATE_Y1 = 230
+Global Const $PET_ACTIVATE_X2 = 160
+Global Const $PET_ACTIVATE_Y2 = 275
+
+Global $petDeathCount = 0
+
+Func initPet($needOpen = True)
    writeLog("Initializing PET...", $LEVEL_INFO)
-   openPetWindow()
+
+   if $needOpen = True Then
+	  openPetWindow()
+   EndIf
    relocatePetWindow()
+   repairPet()
    turnOnPet()
    openPetGearMenu()
    activateCollectorGear()
@@ -47,19 +62,33 @@ Func relocatePetWindow()
    MouseMove(0,0,0)
 EndFunc
 
+Func repairPet()
+   writeLog("Checking PET health...", $LEVEL_INFO)
+   local $x, $y
+   If $REPAIR_PET_ENABLED = $GUI_CHECKED Then
+	  If _ImageSearchArea($PET_DESTROYED_BUTTON_FILE, 1, $PET_ACTIVATE_X1, $PET_ACTIVATE_Y1, $PET_ACTIVATE_X2, $PET_ACTIVATE_Y2, $x, $y, 100) Then
+		 $petDeathCount += 1
+		 writeLog("The PET is destroyed. petDeadthCount: " & $petDeathCount, $LEVEL_WARN)
+
+		 If $MAX_PET_DEATH_COUNT = -1 OR $petDeathCount < $MAX_PET_DEATH_COUNT Then
+			writeLog("Repairing pet...", $LEVEL_WARN)
+			Click($x, $y)
+			Sleep(500)
+		 Else
+			writeLog("Pet death reached limit.", $LEVEL_WARN)
+		 EndIf
+	  EndIf
+   EndIf
+EndFunc
+
 Func turnOnPet()
    writeLog("Turning on PET...", $LEVEL_INFO)
    local $onx, $ony
 
-   local $x1 = 100
-   local $y1 = 230
-   local $x2 = 160
-   local $y2 = 275
-
-   If Not _ImageSearchArea($PET_IS_ON_FILE, 1, $x1, $y1, $x2, $y2, $onx, $ony, 150) Then
+   If Not _ImageSearchArea($PET_IS_ON_FILE, 1, $PET_ACTIVATE_X1, $PET_ACTIVATE_Y1, $PET_ACTIVATE_X2, $PET_ACTIVATE_Y2, $onx, $ony, 150) Then
 	  local $tx, $ty
 
-	  If _ImageSearchArea($PET_TURN_ON_FILE, 1, $x1, $y1, $x2, $y2, $onx, $ony, 150) Then
+	  If _ImageSearchArea($PET_TURN_ON_FILE, 1, $PET_ACTIVATE_X1, $PET_ACTIVATE_Y1, $PET_ACTIVATE_X2, $PET_ACTIVATE_Y2, $onx, $ony, 150) Then
 		 Click($onx, $ony)
 	  Else
 		 writeLog("PET turn on button not found.", $LEVEL_ERROR)

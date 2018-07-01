@@ -1,6 +1,7 @@
 #include "death.au3"
 #include "init.au3"
 #include "move.au3"
+#include "pet.au3"
 
 Global $runPaused = False
 
@@ -28,6 +29,7 @@ Func runProcess()
    writeLog("Processing a run state...", $LEVEL_DEBUG)
 
    checkDeath()
+   checkPet()
    move()
    idleTillMove()
 EndFunc
