@@ -3,6 +3,7 @@ Global Const $REPAIR_AT_GATE = 2
 Global Const $REPAIR_AT_SPOT = 3
 
 Global Const $SHIP_DESTROYED_FILE = getFilePath("ship_destroyed")
+Global Const $SHIP_REPAIR_BUTTON_FILE = getFilePath("ship_repair_button")
 Global Const $REPAIR_AT_BASE_FILE = getFilePath("repair_at_base")
 Global Const $REPAIR_AT_GATE_FILE = getFilePath("repair_at_gate")
 Global Const $REPAIR_AT_SPOT_FILE = getFilePath("repair_at_spot")
@@ -60,6 +61,15 @@ Func repairShip()
 	  writeLog("Repairing: " & $repairAt, $LEVEL_WARN)
 	  Click($x, $y)
 	  Sleep(2000)
+
+	  If _ImageSearch($SHIP_REPAIR_BUTTON_FILE, 1, $x, $y, 150) Then
+		 writeLog("Clicking on repair button...", $LEVEL_INFO)
+		 Click($x, $y)
+	  Else
+		 writeLog("Ship repair button not found.", $LEVEL_ERROR)
+		 MsgBox(0, "Not found", "Ship repair button not found.")
+		 returnToGui()
+	  EndIf
    Else
 	  writeLog($repairAt & " image not found.", $LEVEL_ERROR)
 	  MsgBox(0, "Not Found", $repairAt & " image not found.")
