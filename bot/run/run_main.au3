@@ -1,3 +1,4 @@
+#include "death.au3"
 #include "init.au3"
 #include "move.au3"
 
@@ -25,6 +26,7 @@ Func runProcess()
 
    writeLog("Processing a run state...", $LEVEL_DEBUG)
 
+   checkDeath()
    move()
    idleTillMove()
 EndFunc
