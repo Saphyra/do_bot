@@ -56,15 +56,18 @@ Func repairShip()
 		 $repairAt = $REPAIR_AT_SPOT_FILE
    EndSwitch
 
-   local $x, $y
-   If _ImageSearch($repairAt, 1, $x, $y, 150) Then
+   local $rx, $ry
+   If _ImageSearch($repairAt, 1, $rx, $ry, 150) Then
 	  writeLog("Repairing: " & $repairAt, $LEVEL_WARN)
-	  Click($x, $y)
+	  Click($rx, $ry)
 	  Sleep(2000)
 
-	  If _ImageSearch($SHIP_REPAIR_BUTTON_FILE, 1, $x, $y, 150) Then
+	  local $bx, $by
+	  If _ImageSearch($SHIP_REPAIR_BUTTON_FILE, 1, $bx, $by, 50) Then
 		 writeLog("Clicking on repair button...", $LEVEL_INFO)
-		 Click($x, $y)
+		 MouseMove($bx, $by)
+		 Sleep(5000)
+		 Click($bx, $by)
 	  Else
 		 writeLog("Ship repair button not found.", $LEVEL_ERROR)
 		 MsgBox(0, "Not found", "Ship repair button not found.")
