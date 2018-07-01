@@ -7,8 +7,6 @@ GUI
             - Turn off PET
     DEV-18
         - Collect boxes by hand
-    DEV-22
-        - Check MiniMap position when Move
     DEV-28
         - Return from init mode upon exception
     DEV-29
@@ -19,7 +17,11 @@ GUI
             - Returned to gui
     DEV-31
         - LogOut if PET not repairable
-                
+        - Configurable
+    DEV-32
+        - Alarm voice upon death
+    DEV-33
+        - Init upon death
 Done
     DEV-1
         - Create GUI window
@@ -80,6 +82,8 @@ Done
             - Configurable times
     DEV-21
         - Settings page on GUI
+    DEV-22
+        - Check MiniMap position when Move
     DEV-23
         - Log level settings
     DEV-24

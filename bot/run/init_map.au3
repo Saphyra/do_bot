@@ -1,12 +1,20 @@
 Global Const $MINI_MAP_FILE = getFilePath("mini_map")
 Global Const $MINI_MAP_RESIZE_BUTTON_FILE = getFilePath("mini_map_resize_button")
 
-Func initMiniMap()
+Global $miniMapBaseX1
+Global $miniMapBaseY1
+Global $miniMapBaseX2
+Global $miniMapBaseY2
+
+Func initMiniMap($needOpen = True)
    writeLog("Initializing minimap", $LEVEL_INFO)
 
-   openMiniMap()
+   If $needOpen = True Then
+	  openMiniMap()
+   EndIf
    resizeMiniMap()
    relocateMiniMap()
+   setMiniMapBaseCoordinates()
 EndFunc
 
 Func openMiniMap()
@@ -86,4 +94,20 @@ Func relocateMiniMap()
    MouseMove(@DesktopWidth - 185, 150)
    MouseUp("left")
    MouseMove(0,0,0)
+EndFunc
+
+Func setMiniMapBaseCoordinates()
+   local $miniMapX, $miniMapY
+
+   If Not _ImageSearch($MINI_MAP_FILE, 0, $miniMapX, $miniMapY, 150) Then
+	  writeLog("Minimap not found.", $LEVEL_ERROR)
+	  MsgBox(0, "Error", "MiniMap not found.")
+	  returnToGui()
+	  Return
+   EndIf
+
+   $miniMapBaseX1 = $miniMapX - 5
+   $miniMapBaseY1 = $miniMapY - 5
+   $miniMapBaseX2 = $miniMapX + 60
+   $miniMapBaseY2 = $miniMapY + 10
 EndFunc

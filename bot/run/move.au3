@@ -16,6 +16,11 @@ Global Const $iy2 = 190
 Global $moveStarted
 
 Func move()
+   If Not isMiniMapWellLocated() Then
+	  writeLog("Minimap is not at the right position.", $LEVEL_WARN)
+	  local $x, $y
+	  initMiniMap(_ImageSearch($MINI_MAP_FILE, 0, $x, $y, 150) = 0)
+   EndIf
    local $x = Random($mmx1, $mmx2)
    local $y = Random($mmy1, $mmy2)
    writeLog("Moving to coordinates: " & $x & "/" & $y, $LEVEL_INFO)
@@ -44,4 +49,8 @@ Func isMove()
    local $result = $imageFound = 0
    writeLog("The ship is still moving: " & $result, $LEVEL_DEBUG)
    return $result
+EndFunc
+
+Func isMiniMapWellLocated()
+   Return _ImageSearchArea($MINI_MAP_FILE, 0, $miniMapBaseX1, $miniMapBasey1, $miniMapBaseX2, $miniMapBaseY2, 150) = 1
 EndFunc
