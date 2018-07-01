@@ -44,7 +44,7 @@ EndFunc
 Func repairShip()
    writeLog("Reapiring ship...", $LEVEL_WARN)
    MsgBox(0, "Ship is dead.", "Ship is dead. Will be repaired in " & $WAIT_BEFORE_REPAIR_SECONDS & " seconds.", $WAIT_BEFORE_REPAIR_SECONDS)
-
+   Sleep(1000)
    local $repairAt
    Switch $REPAIR_AT
 	  Case $REPAIR_AT_BASE

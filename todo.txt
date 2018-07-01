@@ -22,7 +22,7 @@ GUI
         - Alarm voice upon death
     DEV-33
         - Init upon death
-Done
+============== Done =================
     DEV-1
         - Create GUI window
     DEV-2
