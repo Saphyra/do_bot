@@ -10,6 +10,7 @@ Func startBot()
    GUISetState(@SW_HIDE, $mainWindowId)
    HotKeySet("{ESC}", "returnToGui")
    HotKeySet("{F1}", "pauseRun")
+   $deathCount = 0
 
    init()
 
