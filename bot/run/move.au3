@@ -52,5 +52,6 @@ Func isMove()
 EndFunc
 
 Func isMiniMapWellLocated()
-   Return _ImageSearchArea($MINI_MAP_FILE, 0, $miniMapBaseX1, $miniMapBasey1, $miniMapBaseX2, $miniMapBaseY2, 150) = 1
+   local $x, $y
+   Return _ImageSearchArea($MINI_MAP_FILE, 0, $miniMapBaseX1, $miniMapBasey1, $miniMapBaseX2, $miniMapBaseY2, $x, $y, 150) = 1
 EndFunc
