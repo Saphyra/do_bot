@@ -3,6 +3,10 @@ DllCall("User32.dll","bool","SetProcessDPIAware")
 
 #include <MsgBoxConstants.au3>
 #include <StaticConstants.au3>
+#include <GUIConstantsEx.au3>
+#include <WindowsConstants.au3>
+#include <editconstants.au3>
+
 #include "general/functions.au3"
 
 Global Const $SETTINGS_INI_FILE = getFilePath("settings_ini")

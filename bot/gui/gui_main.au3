@@ -2,6 +2,7 @@
 #include "main_window.au3"
 #include "main_tab.au3"
 #include "log_settings.au3"
+#include "image_search_test.au3"
 
 Global Const $GUI_WIDTH = 500
 Global Const $GUI_HEIGHT = 500
@@ -13,6 +14,8 @@ Func createGui()
    createMainWindow()
    createMainTab()
    createSettingsTab()
+
+   createTestImageSearchTab()
 
    returnToGui()
 EndFunc
