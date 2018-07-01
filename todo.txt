@@ -24,8 +24,6 @@ GUI
         - Init upon death
     DEV-34
         - Image test module
-    DEV-35
-        - Implement image search test
 ============== Done =================
     DEV-1
         - Create GUI window
@@ -101,4 +99,5 @@ GUI
             - Configurable times
     DEV-27
         - Pause bot without returning to GUI
-    
+    DEV-35
+        - Implement image search test
