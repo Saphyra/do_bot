@@ -56,7 +56,7 @@ Func repairShip()
    EndSwitch
 
    local $x, $y
-   If _ImageSearch($repairAt, 1, $x, $y, 100) Then
+   If _ImageSearch($repairAt, 1, $x, $y, 150) Then
 	  writeLog("Repairing: " & $repairAt, $LEVEL_WARN)
 	  Click($x, $y)
 	  Sleep(2000)
