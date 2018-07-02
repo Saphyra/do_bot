@@ -15,8 +15,24 @@ Func writeLog($message, $level = $LEVEL_INFO)
    EndIf
 
    if isLogToFileEnabled($level) Then
-	  local $file = getFileOfLevel($level)
-	  FileWrite($file, $text)
+	  Switch $level
+		 Case $LEVEL_DEBUG
+			logToDebug($text)
+		 Case $LEVEL_INFO
+			logToDebug($text)
+			logToInfo($text)
+		 Case $LEVEL_WARN
+			logToDebug($text)
+			logToInfo($text)
+			logToWarn($text)
+		 Case $LEVEL_ERROR
+			logToDebug($text)
+			logToInfo($text)
+			logToWarn($text)
+			logToError($text)
+	  EndSwitch
+
+
    EndIf
 
 EndFunc
@@ -47,4 +63,32 @@ EndFunc
 
 Func readLogProperty($property, $default = "")
    Return IniRead($SETTINGS_INI_FILE, "log", $property, $default)
+EndFunc
+
+Func logToDebug($text)
+   If isLogToFileEnabled($LEVEL_DEBUG) Then
+	  local $file = getFileOfLevel($LEVEL_DEBUG)
+	  FileWrite($file, $text)
+   EndIf
+EndFunc
+
+Func logToInfo($text)
+   If isLogToFileEnabled($lEVEL_INFO) Then
+	  local $file = getFileOfLevel($lEVEL_INFO)
+	  FileWrite($file, $text)
+   EndIf
+EndFunc
+
+Func logToWarn($text)
+   If isLogToFileEnabled($lEVEL_WARN) Then
+	  local $file = getFileOfLevel($lEVEL_WARN)
+	  FileWrite($file, $text)
+   EndIf
+EndFunc
+
+Func logToError($text)
+   If isLogToFileEnabled($lEVEL_ERROR) Then
+	  local $file = getFileOfLevel($lEVEL_ERROR)
+	  FileWrite($file, $text)
+   EndIf
 EndFunc

@@ -20,9 +20,7 @@ GUI
         - Alarm voice upon death
     DEV-33
         - Retry init upon fail
-    DEV-34
-        - Write higher level logs into lower files
-    DEV-35
+    DEV-36
         - Improve path searcher algorithm
 ============== Done =================
     DEV-1
@@ -101,5 +99,7 @@ GUI
         - Pause bot without returning to GUI
     DEV-29
         - Gui settings page for death/petdeath
+    DEV-34
+        - Write higher level logs into lower files
     DEV-35
         - Implement image search test
