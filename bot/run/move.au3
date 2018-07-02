@@ -16,10 +16,20 @@ Global Const $iy2 = 190
 Global $moveStarted
 
 Func move()
+   If Not $scriptState = $STATE_RUN Then
+	  writeLog("It is not RUN state. Returning...", $LEVEL_DEBUG)
+	  Return
+   EndIf
+
    If Not isMiniMapWellLocated() Then
 	  writeLog("Minimap is not at the right position.", $LEVEL_WARN)
 	  local $x, $y
-	  initMiniMap(_ImageSearch($MINI_MAP_FILE, 0, $x, $y, 150) = 0)
+	  If Not initMiniMap(_ImageSearch($MINI_MAP_FILE, 0, $x, $y, 150) = 0) Then
+		 writeLog("Minimap initialization failed. Exiting...", $LEVEL_ERROR)
+		 MsgBox(0, "Error", "Minimap initialization failed. Exiting...")
+		 returnToGui()
+		 Return
+	  EndIf
    EndIf
    local $x = Random($mmx1, $mmx2)
    local $y = Random($mmy1, $mmy2)

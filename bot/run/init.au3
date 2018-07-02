@@ -47,4 +47,4 @@ Func initMove()
 
    Click($x, $y)
    Sleep(1000)
-EndIf
+EndFunc
