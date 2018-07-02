@@ -9,12 +9,28 @@ Global $miniMapBaseY2
 Func initMiniMap($needOpen = True)
    writeLog("Initializing minimap", $LEVEL_INFO)
 
+   local $openResult = True
    If $needOpen = True Then
-	  openMiniMap()
+	  $openResult = openMiniMap()
    EndIf
-   resizeMiniMap()
-   relocateMiniMap()
-   setMiniMapBaseCoordinates()
+
+   If Not $openResult Then
+	  Return False
+   EndIf
+
+   If Not resizeMiniMap() Then
+	  Return False
+   EndIf
+
+   If Not relocateMiniMap() Then
+	  Return False
+   EndIf
+
+   If Not setMiniMapBaseCoordinates() Then
+	  Return False
+   EndIf
+
+   Return True
 EndFunc
 
 Func openMiniMap()
@@ -25,10 +41,10 @@ Func openMiniMap()
    if _ImageSearch($miniMapMenuButtonFile, 1, $x, $y, 50) Then
 	  Click($x, $y)
 	  Sleep(1000)
+	  Return True
    Else
 	  writeLog("MiniMap menu button not found.", $LEVEL_ERROR)
-	  MsgBox(0, "Error", "Minimap menu button not found")
-	  returnToGui()
+	  Return False
    EndIf
 EndFunc
 
@@ -40,9 +56,7 @@ Func resizeMiniMap()
    writeLog("Searching for minimap...", $LEVEL_DEBUG)
    If Not _ImageSearch($MINI_MAP_FILE, 0, $miniMapX, $miniMapY, 150) Then
 	  writeLog("Minimap not found.", $LEVEL_ERROR)
-	  MsgBox(0, "Error", "MiniMap not found.")
-	  returnToGui()
-	  Return
+	  Return False
    EndIf
 
 
@@ -59,9 +73,7 @@ Func resizeMiniMap()
 	  writeLog("Searching for resize button. Attempts: " & $i & " out of 5", $LEVEL_DEBUG)
 	  If Not _ImageSearchArea($MINI_MAP_RESIZE_BUTTON_FILE, 1, $x1, $y1, $x2, $y2, $resizeButtonX, $resizeButtonY, 150) Then
 		 writeLog("Minimap resize button not found.", $LEVEL_ERROR)
-		 MsgBox(0, "Not found", "MiniMap resize button not found.")
-		 returnToGui()
-		 Return
+		 Return False
 	  EndIf
 
 	  If $oldResizeButtonX = $resizeButtonX And $oldResizeButtonY = $resizeButtonY Then
@@ -75,6 +87,8 @@ Func resizeMiniMap()
 	  Click($resizeButtonX, $resizeButtonY)
 	  Sleep(500)
    Next
+
+   Return True
 EndFunc
 
 Func relocateMiniMap()
@@ -84,8 +98,7 @@ Func relocateMiniMap()
    If Not _ImageSearch($MINI_MAP_FILE, 0, $miniMapX, $miniMapY, 150) Then
 	  writeLog("Minimap not found.", $LEVEL_ERROR)
 	  MsgBox(0, "Error", "MiniMap not found.")
-	  returnToGui()
-	  Return
+	  Return False
    EndIf
 
    MouseMove($miniMapX + 20, $miniMapY, 0)
@@ -94,6 +107,7 @@ Func relocateMiniMap()
    MouseMove(@DesktopWidth - 185, 150)
    MouseUp("left")
    MouseMove(0,0,0)
+   Return True
 EndFunc
 
 Func setMiniMapBaseCoordinates()
@@ -101,13 +115,13 @@ Func setMiniMapBaseCoordinates()
 
    If Not _ImageSearch($MINI_MAP_FILE, 0, $miniMapX, $miniMapY, 150) Then
 	  writeLog("Minimap not found.", $LEVEL_ERROR)
-	  MsgBox(0, "Error", "MiniMap not found.")
-	  returnToGui()
-	  Return
+	  Return False
    EndIf
 
    $miniMapBaseX1 = $miniMapX - 5
    $miniMapBaseY1 = $miniMapY - 5
    $miniMapBaseX2 = $miniMapX + 60
    $miniMapBaseY2 = $miniMapY + 10
+
+   Return True
 EndFunc

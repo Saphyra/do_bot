@@ -13,7 +13,9 @@ Func startBot()
    HotKeySet("{F1}", "pauseRun")
    $deathCount = 0
 
-   init()
+   If Not init() Then
+	  Return
+   EndIf
 
    $runPaused = False
    $scriptState = $STATE_RUN

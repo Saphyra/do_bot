@@ -19,14 +19,36 @@ Global $petDeathCount = 0
 Func initPet($needOpen = True)
    writeLog("Initializing PET...", $LEVEL_INFO)
 
+   local $openResult = True
    if $needOpen = True Then
-	  openPetWindow()
+	  $openResult = openPetWindow()
    EndIf
-   relocatePetWindow()
-   repairPet()
-   turnOnPet()
-   openPetGearMenu()
-   activateCollectorGear()
+
+   If Not $openResult Then
+	  Return False
+   EndIf
+
+   If Not relocatePetWindow() Then
+	  Return False
+   EndIf
+
+   If Not repairPet() Then
+	  Return False
+   EndIf
+
+   If Not turnOnPet() Then
+	  Return False
+   EndIf
+
+   If Not openPetGearMenu() Then
+	  Return False
+   EndIf
+
+   If Not activateCollectorGear() Then
+	  Return False
+   EndIf
+
+   Return True
 EndFunc
 
 Func openPetWindow()
@@ -38,9 +60,10 @@ Func openPetWindow()
 	  Sleep(1000)
    Else
 	  writeLog("PET menu button not found.", $LEVEL_ERROR)
-	  MsgBox(0, "Error", "Pet menu button not found")
-	  returnToGui()
+	  Return False
    EndIf
+
+   Return True
 EndFunc
 
 Func relocatePetWindow()
@@ -49,9 +72,7 @@ Func relocatePetWindow()
 
    If Not _ImageSearch($PET_FILE, 0, $x, $y, 150) Then
 	  writeLog("PET not found.", $LEVEL_ERROR)
-	  MsgBox(0, "Error", "Pet not found.")
-	  returnToGui()
-	  Return
+	  Return False
    EndIf
 
    MouseMove($x + 20, $y, 0)
@@ -60,6 +81,8 @@ Func relocatePetWindow()
    MouseMove(150, 150)
    MouseUp("left")
    MouseMove(0,0,0)
+
+   Return True
 EndFunc
 
 Func repairPet()
@@ -79,6 +102,8 @@ Func repairPet()
 		 EndIf
 	  EndIf
    EndIf
+
+   Return True
 EndFunc
 
 Func turnOnPet()
@@ -92,18 +117,20 @@ Func turnOnPet()
 		 Click($onx, $ony)
 	  Else
 		 writeLog("PET turn on button not found.", $LEVEL_ERROR)
-		 MsgBox(0, "Error", "Pet turn on button not found.")
-		 returnToGui()
+		 Return False
 	  EndIf
    Else
 	  writeLog("Pet is currently turned on.", $LEVEL_WARN)
    EndIf
+
+   Return True
 EndFunc
 
 Func openPetGearMenu()
    writeLog("Opening PET gear menu...", $LEVEL_INFO)
    local $x, $y
 
+;~    Pet Gear Search Area
    local $x1 = 350
    local $y1 = 245
    local $x2 = 365
@@ -115,6 +142,8 @@ Func openPetGearMenu()
    Else
 	  writeLog("Pet gear list button not found", $LEVEL_WARN)
    EndIf
+
+   Return True
 EndFunc
 
 Func activateCollectorGear()
@@ -130,5 +159,8 @@ Func activateCollectorGear()
 	  Click($x, $y)
    Else
 	  writeLog("Pet Collector Gear Not Found", $LEVEL_WARN)
+	  Return False
    EndIf
+
+   Return True
 EndFunc
