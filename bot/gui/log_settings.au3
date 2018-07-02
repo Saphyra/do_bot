@@ -1,15 +1,4 @@
-Global Const $DEFAULT_LABEL_HEIGHT = 20
-Global Const $DEFAULT_LABEL_MARGIN = 20
-Global Const $DEFAULT_INPUT_FIELD_HEIGHT = 24
-
-Func createSettingsTab()
-   writeLog("Creating settings tab", $LEVEL_INFO)
-   local $id = GUICtrlCreateTab(0, 0, $GUI_WIDTH, $GUI_HEIGHT)
-
-   addLogSettingsToTab()
-EndFunc
-
-Func addLogSettingsToTab()
+Func createLogSettingsTab()
    writeLog("Creating settings tab...", $LEVEL_INFO)
    GUICtrlCreateTabItem("Log settings")
 

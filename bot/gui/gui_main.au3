@@ -2,10 +2,15 @@
 #include "main_window.au3"
 #include "main_tab.au3"
 #include "log_settings.au3"
+#include "repair_settings.au3"
 #include "image_search_test.au3"
 
 Global Const $GUI_WIDTH = 500
 Global Const $GUI_HEIGHT = 500
+
+Global Const $DEFAULT_LABEL_HEIGHT = 20
+Global Const $DEFAULT_LABEL_MARGIN = 20
+Global Const $DEFAULT_INPUT_FIELD_HEIGHT = 24
 
 Func createGui()
    writeLog("Creating GUI", $LEVEL_INFO)
@@ -13,7 +18,9 @@ Func createGui()
 
    createMainWindow()
    createMainTab()
-   createSettingsTab()
+
+   createLogSettingsTab()
+   createRepairSettingsTab()
 
    createTestImageSearchTab()
 
