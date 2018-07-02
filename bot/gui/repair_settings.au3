@@ -71,11 +71,11 @@ EndFunc
 Func getRepairAt()
    local $value = IniRead($SETTINGS_INI_FILE, "death", "repair_at", 1)
    Switch $value
-	  Case 1:
+	  Case $REPAIR_AT_BASE:
 		 Return "Base"
-	  Case 2:
+	  Case $REPAIR_AT_GATE:
 		 Return "Gate"
-	  Case 3:
+	  Case $REPAIR_AT_SPOT:
 		 Return "Spot"
    EndSwitch
 EndFunc
@@ -131,5 +131,26 @@ Func addSaveRepairSettingsButton()
 EndFunc
 
 Func saveRepairSettings()
-;~    TODO
+   IniWrite($SETTINGS_INI_FILE, "death", "repair_ship_on_death", GUICtrlRead($REPAIR_SHIP_ENABLE_CHECKBOX_ID))
+   IniWrite($SETTINGS_INI_FILE, "death", "max_ship_death_count", GUICtrlRead($REPAIR_SHIP_MAX_DEATH_COUNT_FIELD_ID))
+   IniWrite($SETTINGS_INI_FILE, "death", "wait_before_repair_seconds", GUICtrlRead($REPAIR_SHIP_WAIT_BEFORE_REPAIR_FIELD_ID))
+   IniWrite($SETTINGS_INI_FILE, "death", "repair_at", getRepairAtNumber())
+
+   IniWrite($SETTINGS_INI_FILE, "pet", "repair_pet", GUICtrlRead($REPAIR_PET_ENABLED_CHECKBOX_ID))
+   IniWrite($SETTINGS_INI_FILE, "pet", "max_pet_death_count", GUICtrlRead($MAX_PET_DEATH_COUNT_FIELD_ID))
+   IniWrite($SETTINGS_INI_FILE, "pet", "exit_when_too_much_pet_death", GUICtrlRead($EXIT_WHEN_PET_DEATH_COUNT_CHECKBOX_ID))
+
+   MsgBox(0, "Saved", "Settings saved.", 5)
+EndFunc
+
+Func getRepairAtNumber()
+   local $text = GUICtrlRead($REPAIR_SHIP_AT_COMBO_ID)
+   Switch $text
+	  Case "Base"
+		 Return $REPAIR_AT_BASE
+	  Case "Gate"
+		 Return $REPAIR_AT_GATE
+	  Case "Spot"
+		 Return $REPAIR_AT_SPOT
+   EndSwitch
 EndFunc
