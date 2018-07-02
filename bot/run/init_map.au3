@@ -7,30 +7,39 @@ Global $miniMapBaseX2
 Global $miniMapBaseY2
 
 Func initMiniMap($needOpen = True)
-   writeLog("Initializing minimap", $LEVEL_INFO)
+   local $attempts
+   For $attempts = 1 To 3
+	  writeLog("Initializing minimap... Attemots: " & $attempts, $LEVEL_INFO)
 
-   local $openResult = True
-   If $needOpen = True Then
-	  $openResult = openMiniMap()
-   EndIf
+	  local $openResult = True
+	  If $needOpen = True Then
+		 $openResult = openMiniMap()
+	  EndIf
 
-   If Not $openResult Then
-	  Return False
-   EndIf
+	  If Not $openResult Then
+		 initMove()
+		 ContinueLoop
+	  EndIf
 
-   If Not resizeMiniMap() Then
-	  Return False
-   EndIf
+	  If Not resizeMiniMap() Then
+		 initMove()
+		 ContinueLoop
+	  EndIf
 
-   If Not relocateMiniMap() Then
-	  Return False
-   EndIf
+	  If Not relocateMiniMap() Then
+		 initMove()
+		 ContinueLoop
+	  EndIf
 
-   If Not setMiniMapBaseCoordinates() Then
-	  Return False
-   EndIf
+	  If Not setMiniMapBaseCoordinates() Then
+		 initMove()
+		 ContinueLoop
+	  EndIf
 
-   Return True
+	  Return True
+   Next
+
+   Return False
 EndFunc
 
 Func openMiniMap()

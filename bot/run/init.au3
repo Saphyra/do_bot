@@ -29,3 +29,22 @@ Func closeTabs()
    Send("h")
    Sleep(1500)
 EndFunc
+
+Func initMove()
+   local $x
+   If Round(Random(0, 1)) = 0 Then
+	  $x = @DesktopWidth / 2 - 200
+   Else
+	  $x = @DesktopWidth / 2 + 200
+   EndIf
+
+   local $y
+   If Round(Random(0, 1)) = 0 Then
+	  $y = @DesktopHeight / 2 - 200
+   Else
+	  $y = @DesktopHeight / 2 + 200
+   EndIf
+
+   Click($x, $y)
+   Sleep(1000)
+EndIf

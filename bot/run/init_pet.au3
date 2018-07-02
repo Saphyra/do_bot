@@ -17,38 +17,49 @@ Global Const $PET_ACTIVATE_Y2 = 275
 Global $petDeathCount = 0
 
 Func initPet($needOpen = True)
-   writeLog("Initializing PET...", $LEVEL_INFO)
+   local $attempts
+   For $attempts = 1 To 3
+	  writeLog("Initializing PET... Attempts: " & $attempts, $LEVEL_INFO)
 
-   local $openResult = True
-   if $needOpen = True Then
-	  $openResult = openPetWindow()
-   EndIf
+	  local $openResult = True
+	  if $needOpen = True Then
+		 $openResult = openPetWindow()
+	  EndIf
 
-   If Not $openResult Then
-	  Return False
-   EndIf
+	  If Not $openResult Then
+		 initMove()
+		 ContinueLoop
+	  EndIf
 
-   If Not relocatePetWindow() Then
-	  Return False
-   EndIf
+	  If Not relocatePetWindow() Then
+		 initMove()
+		 ContinueLoop
+	  EndIf
 
-   If Not repairPet() Then
-	  Return False
-   EndIf
+	  If Not repairPet() Then
+		 initMove()
+		 ContinueLoop
+	  EndIf
 
-   If Not turnOnPet() Then
-	  Return False
-   EndIf
+	  If Not turnOnPet() Then
+		 initMove()
+		 ContinueLoop
+	  EndIf
 
-   If Not openPetGearMenu() Then
-	  Return False
-   EndIf
+	  If Not openPetGearMenu() Then
+		 initMove()
+		 ContinueLoop
+	  EndIf
 
-   If Not activateCollectorGear() Then
-	  Return False
-   EndIf
+	  If Not activateCollectorGear() Then
+		 initMove()
+		 ContinueLoop
+	  EndIf
 
-   Return True
+	  Return True
+   Next
+
+   Return False
 EndFunc
 
 Func openPetWindow()

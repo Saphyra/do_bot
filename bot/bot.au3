@@ -16,7 +16,6 @@ Global Const $SETTINGS_INI_FILE = getFilePath("settings_ini")
 #include "general/ImageSearch.au3"
 #include "general/logger.au3"
 
-
 #include "general/startup.au3"
 
 #include "gui/gui_main.au3"
