@@ -20,10 +20,6 @@ GUI
         - Configurable
     DEV-32
         - Alarm voice upon death
-    DEV-33
-        - Init upon death
-    DEV-34
-        - Image test module
 ============== Done =================
     DEV-1
         - Create GUI window

@@ -66,6 +66,7 @@ Func repairShip()
 	  If _ImageSearch($SHIP_REPAIR_BUTTON_FILE, 1, $bx, $by, 50) Then
 		 writeLog("Clicking on repair button...", $LEVEL_INFO)
 		 Click($bx, $by)
+		 Sleep(5000)
 	  Else
 		 writeLog("Ship repair button not found.", $LEVEL_ERROR)
 		 MsgBox(0, "Not found", "Ship repair button not found.")
