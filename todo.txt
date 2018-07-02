@@ -20,6 +20,10 @@ GUI
         - Configurable
     DEV-32
         - Alarm voice upon death
+    DEV-33
+        - Retry init upon fail
+    DEV-34
+        - Write higher level logs into lower files
 ============== Done =================
     DEV-1
         - Create GUI window
