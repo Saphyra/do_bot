@@ -22,6 +22,8 @@ GUI
         - Retry init upon fail
     DEV-34
         - Write higher level logs into lower files
+    DEV-35
+        - Improve path searcher algorithm
 ============== Done =================
     DEV-1
         - Create GUI window
