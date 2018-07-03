@@ -7,8 +7,6 @@ GUI
             - Turn off PET
     DEV-18
         - Collect boxes by hand
-    DEV-28
-        - Return from init mode upon exception
     DEV-30
         - Block business actions when needed
             - Ship dead
@@ -18,10 +16,22 @@ GUI
         - Configurable
     DEV-32
         - Alarm voice upon death
-    DEV-33
-        - Retry init upon fail
+        - Configurable
     DEV-36
         - Improve path searcher algorithm
+    DEV-37
+        - Return to cloak mode
+        - Configurable
+    DEV-38
+        - Use ultimate cloak
+            - After death
+            - Upon enemy attack
+    DEV-39
+        - Recognize actual map
+    DEV-40
+        - Go back to the map upon death
+    DEV-41
+        - Escape upon enemy attack
 ============== Done =================
     DEV-1
         - Create GUI window
@@ -97,8 +107,12 @@ GUI
             - Configurable times
     DEV-27
         - Pause bot without returning to GUI
+    DEV-28
+        - Return from init mode upon exception
     DEV-29
         - Gui settings page for death/petdeath
+    DEV-33
+        - Retry init upon fail
     DEV-34
         - Write higher level logs into lower files
     DEV-35
