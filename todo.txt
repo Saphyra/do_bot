@@ -30,6 +30,8 @@ GUI
         - Go back to the map upon death
     DEV-41
         - Escape upon enemy attack
+    DEV-42
+        - Death counts back to 0 when push start button
 ============== Done =================
     DEV-1
         - Create GUI window
