@@ -17,8 +17,6 @@ GUI
     DEV-32
         - Alarm voice upon death
         - Configurable
-    DEV-36
-        - Improve path searcher algorithm
     DEV-37
         - Return to cloak mode
         - Configurable
@@ -117,3 +115,5 @@ GUI
         - Write higher level logs into lower files
     DEV-35
         - Implement image search test
+    DEV-36
+        - Improve path searcher algorithm
