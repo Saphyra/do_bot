@@ -7,8 +7,10 @@ Global Const $BBY2 = @DesktopHeight - 100
 
 Func collectBox()
    local $x, $y
-   While _ImageSearchArea($BONUS_BOX_FILE, 1, $BBX1, $BBY1, $BBX2, $BBY2, $x, $y)
+   local $lastX, $lastY
+   While _ImageSearchArea($BONUS_BOX_FILE, 1, $BBX1, $BBY1, $BBX2, $BBY2, $x, $y, 50)
 	  Click($x, $y)
+	  Sleep(500)
 	  idleTillMove()
    WEnd
 EndFunc
