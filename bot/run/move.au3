@@ -76,7 +76,7 @@ Func getNextCoordinates()
    writeLog("Setting the coordinates of the next move.", $LEVEL_INFO)
    If Not attemptNextCoordinates() Then
 	  writeLog("Cleaning coordinate stroage. Size: " & UBound($coordinates), $LEVEL_WARN)
-	  $coordinates = []
+	  Global $coordinates = []
 	  attemptNextCoordinates()
    EndIf
 EndFunc
@@ -118,12 +118,9 @@ Func isCoordinateAssignable($x, $y)
 	  local $sx = $splitted[1]
 	  local $sy = $splitted[2]
 
-	  If Abs($sx - $x) <= $MIN_DISTANCE Then
-		 writeLog($x & " x is in range.", $LEVEL_DEBUG)
-		 If Abs($sy - $y) <= $MIN_DISTANCE Then
-			writeLog($x & " y is in range.", $LEVEL_DEBUG)
-			Return False
-		 EndIf
+	  If Abs($sx - $x) <= $MIN_DISTANCE And Abs($sy - $y) <= $MIN_DISTANCE Then
+		 writeLog($x & "/" & $y & " is in range.", $LEVEL_DEBUG)
+		 Return False
 	  EndIf
    Next
 
