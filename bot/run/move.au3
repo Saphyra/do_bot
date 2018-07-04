@@ -17,7 +17,8 @@ Global Const $ATTEMPTS_BEFORE_RESET_COORDINATES = 5
 Global Const $MIN_DISTANCE = 10
 Global $moveStarted
 Global $coordinates = []
-Global xCoord = $mmx1, yCoord = $mmy1
+Global $xCoord = $mmx1
+Global $yCoord = $mmy1
 
 Func move()
    If Not $scriptState = $STATE_RUN Then
@@ -71,7 +72,7 @@ Func isMiniMapWellLocated()
    Return _ImageSearchArea($MINI_MAP_FILE, 0, $miniMapBaseX1, $miniMapBasey1, $miniMapBaseX2, $miniMapBaseY2, $x, $y, 150) = 1
 EndFunc
 
-Func getNextCoordinates
+Func getNextCoordinates()
    writeLog("Setting the coordinates of the next move.", $LEVEL_INFO)
    If Not attemptNextCoordinates() Then
 	  writeLog("Cleaning coordinate stroage. Size: " & UBound($coordinates), $LEVEL_WARN)
@@ -86,10 +87,10 @@ Func attemptNextCoordinates()
    For $try = 1 To $ATTEMPTS_BEFORE_RESET_COORDINATES
 	  local $x = Random($mmx1, $mmx2, 1)
 	  local $y = Random($mmy1, $mmy2, 1)
+	  local $coord = $x & "/" & $y
 
 	  writeLog("New attempt: " & $x & "/" & $y & " - " & $try & " out of " & $ATTEMPTS_BEFORE_RESET_COORDINATES, $LEVEL_DEBUG)
 	  If isCoordinateAssignable($x, $y) Then
-		 local $coord = $x & "/" & $y
 		 writeLog($coord & " is assignable.", $LEVEL_DEBUG)
 		 _ArrayAdd($coordinates, $coord)
 		 $xCoord = $x
@@ -108,7 +109,7 @@ Func isCoordinateAssignable($x, $y)
 
    local $index
    For $index = 0 To UBound($coordinates) - 1
-	  local $coordinate =  $coordinates[$i]
+	  local $coordinate =  $coordinates[$index]
 	  If Not $coordinate Then
 		 ContinueLoop
 	  EndIf

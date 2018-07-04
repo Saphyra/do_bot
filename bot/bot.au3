@@ -1,6 +1,7 @@
 ;~ For the exact @DesktopSize values
 DllCall("User32.dll","bool","SetProcessDPIAware")
 
+#include <Array.au3>
 #include <ComboConstants.au3>
 #include <editconstants.au3>
 #include <GuiComboBox.au3>

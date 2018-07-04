@@ -5,6 +5,8 @@ Func init()
    writeLog("Initializing game windows...", $LEVEL_INFO)
 
    closeTabs()
+   getNextCoordinates()
+
    If Not initMiniMap() Then
 	  writeLog("Error occured during initializing minimap.", $LEVEL_ERROR)
 	  MsgBox(0, "Error", "Error occured during initializing minimap.")
