@@ -13,7 +13,11 @@ Global Const $iy1 = 160
 Global Const $ix2 = @DesktopWidth - 50
 Global Const $iy2 = 190
 
+Global Const $ATTEMPTS_BEFORE_RESET_COORDINATES = 5
+Global Const $MIN_DISTANCE = 10
 Global $moveStarted
+Global $coordinates = []
+Global xCoord = $mmx1, yCoord = $mmy1
 
 Func move()
    If Not $scriptState = $STATE_RUN Then
@@ -31,11 +35,12 @@ Func move()
 		 Return
 	  EndIf
    EndIf
-   local $x = Random($mmx1, $mmx2)
-   local $y = Random($mmy1, $mmy2)
-   writeLog("Moving to coordinates: " & $x & "/" & $y, $LEVEL_INFO)
-   Click($x, $y)
+
+   writeLog("Moving to coordinates: " & $xCoord & "/" & $yCoord, $LEVEL_INFO)
+   Click($xCoord, $yCoord)
    $moveStarted = getTimeStamp()
+
+   getNextCoordinates()
 
    Sleep(500)
 EndFunc
@@ -64,4 +69,62 @@ EndFunc
 Func isMiniMapWellLocated()
    local $x, $y
    Return _ImageSearchArea($MINI_MAP_FILE, 0, $miniMapBaseX1, $miniMapBasey1, $miniMapBaseX2, $miniMapBaseY2, $x, $y, 150) = 1
+EndFunc
+
+Func getNextCoordinates
+   writeLog("Setting the coordinates of the next move.", $LEVEL_INFO)
+   If Not attemptNextCoordinates() Then
+	  writeLog("Cleaning coordinate stroage. Size: " & UBound($coordinates), $LEVEL_WARN)
+	  $coordinates = []
+	  attemptNextCoordinates()
+   EndIf
+EndFunc
+
+Func attemptNextCoordinates()
+   writeLog("Trying to attempt the next coordinate.", $LEVEL_INFO)
+   local $try
+   For $try = 1 To $ATTEMPTS_BEFORE_RESET_COORDINATES
+	  local $x = Random($mmx1, $mmx2, 1)
+	  local $y = Random($mmy1, $mmy2, 1)
+
+	  writeLog("New attempt: " & $x & "/" & $y & " - " & $try & " out of " & $ATTEMPTS_BEFORE_RESET_COORDINATES, $LEVEL_DEBUG)
+	  If isCoordinateAssignable($x, $y) Then
+		 local $coord = $x & "/" & $y
+		 writeLog($coord & " is assignable.", $LEVEL_DEBUG)
+		 _ArrayAdd($coordinates, $coord)
+		 $xCoord = $x
+		 $yCoord = $y
+		 Return True
+	  EndIf
+	  writeLog($coord & " is NOT assignable.", $LEVEL_DEBUG)
+   Next
+
+   writeLog("Could not find assignable coordinates out of " & $ATTEMPTS_BEFORE_RESET_COORDINATES & " attempts.", $LEVEL_INFO)
+   Return False
+EndFunc
+
+Func isCoordinateAssignable($x, $y)
+   writeLog("Checking if " & $x & "/" & $y & " is assignable...", $LEVEL_DEBUG)
+
+   local $index
+   For $index = 0 To UBound($coordinates) - 1
+	  local $coordinate =  $coordinates[$i]
+	  If Not $coordinate Then
+		 ContinueLoop
+	  EndIf
+
+	  local $splitted = StringSplit($coordinate, "/")
+	  local $sx = $splitted[1]
+	  local $sy = $splitted[2]
+
+	  If Abs($sx - $x) <= $MIN_DISTANCE Then
+		 writeLog($x & " x is in range.", $LEVEL_DEBUG)
+		 If Abs($sy - $y) <= $MIN_DISTANCE Then
+			writeLog($x & " y is in range.", $LEVEL_DEBUG)
+			Return False
+		 EndIf
+	  EndIf
+   Next
+
+   Return True
 EndFunc
