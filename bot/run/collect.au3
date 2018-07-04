@@ -15,7 +15,7 @@ Func collectBox()
 	  If Not _ImageSearchArea($BONUS_BOX_FILE, 1, $BBX1, $BBY1, $BBX2, $BBY2, $x, $y, 20) Then
 		 writeLog("No boxes found in the search area.", $LEVEL_INFO)
 		 ExitLoop
-	  Next
+	  EndIf
 	  writeLog("Bonus box found at " & $x & "/" & $y, $LEVEL_INFO)
 	  If $x = $lastX And $y = $lastY Then
 		 writeLog("Ship stucked during collecting boxes at " & $x & "/" & $y, $LEVEL_WARN)
