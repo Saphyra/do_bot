@@ -5,8 +5,6 @@ GUI
             - Ignore
             - Go to other map
             - Turn off PET
-    DEV-18
-        - Collect boxes by hand
     DEV-31
         - LogOut if PET not repairable
         - Configurable
@@ -31,7 +29,8 @@ GUI
             - Run time
             - deathCount
             - pet deathCount
-
+    DEV-43
+        - Collect boxes by hand (while move)
 
 ============== DONE =================
     DEV-1
@@ -84,6 +83,8 @@ GUI
         - Relocate PET window
     DEV-16
         - Activate PET and collector gear
+    DEV-18
+        - Collect boxes by hand (After stop)
     DEV-19
         - Repair upon death
             - Configurable times
