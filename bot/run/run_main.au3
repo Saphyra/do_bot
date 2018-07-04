@@ -12,6 +12,7 @@ Func startBot()
    HotKeySet("{ESC}", "returnToGui")
    HotKeySet("{F1}", "pauseRun")
    $deathCount = 0
+   $petDeathCount = 0
 
    If Not init() Then
 	  Return

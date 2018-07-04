@@ -10,6 +10,7 @@ Func initMiniMap($needOpen = True)
    local $attempts
    For $attempts = 1 To 3
 	  writeLog("Initializing minimap... Attemots: " & $attempts, $LEVEL_INFO)
+	  checkDeath()
 
 	  local $openResult = True
 	  If $needOpen = True Then

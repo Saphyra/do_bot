@@ -20,6 +20,7 @@ Func initPet($needOpen = True)
    local $attempts
    For $attempts = 1 To 3
 	  writeLog("Initializing PET... Attempts: " & $attempts, $LEVEL_INFO)
+	  checkDeath()
 
 	  local $openResult = True
 	  if $needOpen = True Then
