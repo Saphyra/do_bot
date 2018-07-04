@@ -1,3 +1,4 @@
+#include "collect.au3"
 #include "death.au3"
 #include "init.au3"
 #include "move.au3"
@@ -35,6 +36,7 @@ Func runProcess()
    checkPet()
    move()
    idleTillMove()
+   collectBox()
 EndFunc
 
 Func resumeRun()
