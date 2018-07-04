@@ -111,6 +111,7 @@ Func repairPet()
 			Sleep(500)
 		 Else
 			writeLog("Pet death reached limit.", $LEVEL_WARN)
+			Return False
 		 EndIf
 	  EndIf
    EndIf

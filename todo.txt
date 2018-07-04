@@ -7,10 +7,6 @@ GUI
             - Turn off PET
     DEV-18
         - Collect boxes by hand
-    DEV-30
-        - Block business actions when needed
-            - Ship dead
-            - Returned to gui
     DEV-31
         - LogOut if PET not repairable
         - Configurable
@@ -30,7 +26,14 @@ GUI
         - Go back to the map upon death
     DEV-41
         - Escape upon enemy attack
-============== Done =================
+    DEV-42
+        - Show statistics when exit
+            - Run time
+            - deathCount
+            - pet deathCount
+
+
+============== DONE =================
     DEV-1
         - Create GUI window
     DEV-2
