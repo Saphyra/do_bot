@@ -26,10 +26,22 @@ Func collectBox()
 	  $lastX = $x
 	  $lastY = $y
 
-	  Sleep(500)
-	  idleTillMove()
-	  Sleep(500)
+	  Sleep(200)
+	  idleTillMove(False)
+	  Sleep(200)
    Next
 
    writeLog("No more bonus boxes in the search area.", $LEVEL_INFO)
+EndFunc
+
+func searchForBonusBox()
+   local $x, $y
+   if _ImageSearchArea($BONUS_BOX_FILE, 1, $BBX1, $BBY1, $BBX2, $BBY2, $x, $y, 20) Then
+	  writeLog("Bonus box found at " & $x & "/" & $y, $LEVEL_INFO)
+	  Sleep(500)
+	  Click($x, $y)
+	  idleTillMove(False)
+	  Return True
+   EndIf
+   Return False
 EndFunc

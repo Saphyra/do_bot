@@ -29,9 +29,8 @@ GUI
             - Run time
             - deathCount
             - pet deathCount
-    DEV-43
-        - Collect boxes by hand (while move)
-
+    DEV-44
+        - General Settings GUI page
 ============== DONE =================
     DEV-1
         - Create GUI window
@@ -123,3 +122,5 @@ GUI
         - Improve path searcher algorithm
     DEV-42
         - Death counts back to 0 when push start button
+    DEV-43
+        - Collect boxes by hand (while move)

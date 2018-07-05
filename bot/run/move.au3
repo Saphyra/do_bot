@@ -41,16 +41,24 @@ Func move()
    Click($xCoord, $yCoord)
    $moveStarted = getTimeStamp()
 
-   getNextCoordinates()
-
-   Sleep(500)
+   Sleep(3000)
 EndFunc
 
-Func idleTillMove()
+Func idleTillMove($shouldSearchBoxes = True)
    writeLog("Waiting for the ship reaches the target position", $LEVEL_INFO)
+   local $isBoxFound = False
    While isMove() = True
-	  Sleep(500)
+	  Sleep(100)
+	  If $shouldSearchBoxes = True Then
+		 $isBoxFound = searchForBonusBox()
+	  EndIf
    WEnd
+
+   If Not $isBoxFound And $shouldSearchBoxes Then
+	  getNextCoordinates()
+   ElseIf Not $shouldSearchForBoxesSetting Then
+	  getNextCoordinates()
+   EndIf
 EndFunc
 
 Func isMove()

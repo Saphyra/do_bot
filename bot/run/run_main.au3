@@ -14,6 +14,7 @@ Func startBot()
    HotKeySet("{F1}", "pauseRun")
    $deathCount = 0
    $petDeathCount = 0
+   Global $shouldSearchForBoxesSetting = IniRead($SETTINGS_INI_FILE, "general", "collect_while_move", $GUI_UNCHECKED) = $GUI_CHECKED
 
    If Not init() Then
 	  Return
@@ -35,7 +36,7 @@ Func runProcess()
    checkDeath()
    checkPet()
    move()
-   idleTillMove()
+   idleTillMove($shouldSearchForBoxesSetting)
    collectBox()
 EndFunc
 
