@@ -1,6 +1,6 @@
 Func createLogSettingsTab()
-   writeLog("Creating settings tab...", $LEVEL_INFO)
-   GUICtrlCreateTabItem("Log settings")
+   writeLog("Creating log settings tab...", $LEVEL_INFO)
+   GUICtrlCreateTabItem("Log")
 
    addLogLevelSettings()
    addDeleteFilesSettings()

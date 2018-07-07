@@ -1,8 +1,9 @@
 #include <GUIConstantsEx.au3>
 #include "main_window.au3"
 #include "main_tab.au3"
-#include "log_settings.au3"
-#include "repair_settings.au3"
+#include "settings_general.au3"
+#include "settings_log.au3"
+#include "settings_repair.au3"
 #include "image_search_test.au3"
 
 Global Const $GUI_WIDTH = 500
@@ -19,8 +20,9 @@ Func createGui()
    createMainWindow()
    createMainTab()
 
-   createLogSettingsTab()
+   createGeneralSettingsTab()
    createRepairSettingsTab()
+   createLogSettingsTab()
 
    createTestImageSearchTab()
 

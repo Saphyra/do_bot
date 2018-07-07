@@ -1,6 +1,6 @@
 Func createRepairSettingsTab()
    writeLog("Creating repair settings tab...", $LEVEL_INFO)
-   GUICtrlCreateTabItem("Repair settings")
+   GUICtrlCreateTabItem("Repair")
 
    addShipRepairSettings()
    fillRepairShipSettings()
