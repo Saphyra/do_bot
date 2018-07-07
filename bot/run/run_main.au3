@@ -5,6 +5,7 @@
 #include "pet.au3"
 
 Global $runPaused = False
+Global $runStarted = 0
 
 Func startBot()
    writeLog("Starting bot", $LEVEL_INFO)
@@ -14,6 +15,7 @@ Func startBot()
    HotKeySet("{F1}", "pauseRun")
    $deathCount = 0
    $petDeathCount = 0
+   $runStarted = getTimeStamp()
    Global $shouldSearchForBoxesSetting = IniRead($SETTINGS_INI_FILE, "general", "collect_while_move", $GUI_UNCHECKED) = $GUI_CHECKED
 
    If Not init() Then

@@ -26,14 +26,46 @@ Func createGui()
 
    createTestImageSearchTab()
 
-   returnToGui()
+   returnToGui(False)
 EndFunc
 
-Func returnToGui()
+Func returnToGui($shouldShowStatistics = True)
    writeLog("GUI window opened.", $LEVEL_INFO)
 
    HotKeySet("{ESC}", "close")
    HotKeySet("{F1}")
    $scriptState = $STATE_GUI
    GUISetState(@SW_SHOW, $mainWindowId)
+   If Not IsDeclared("shouldShowStatistics") Or $shouldShowStatistics Then
+	  showStatistics()
+   EndIf
+EndFunc
+
+Func showStatistics()
+   writeLog("Displaying statistics...", $LEVEL_INFO)
+   MsgBox(0, "Statistics", "Run time: " & getRunTime() & @CRLF & "Death count: " & $deathCount & @CRLF & "PET death count: " & $petDeathCount)
+EndFunc
+
+Func getRunTime()
+   local $now = getTimeStamp()
+
+   local $diff = $now - $runStarted
+
+   local $hours = Floor($diff / 3600)
+   local $minutes = Floor(($diff - $hours * 3600) / 60)
+   local $seconds = $diff - $hours * 3600 - $minutes * 60
+
+   If $hours < 10 Then
+	  $hours = 0 & $hours
+   EndIf
+
+   If $minutes < 10 Then
+	  $minutes = 0 & $minutes
+   EndIf
+
+   If $seconds < 10 Then
+	  $seconds = 0 & $seconds
+   EndIf
+
+   return $hours & ":" & $minutes & ":" & $seconds
 EndFunc

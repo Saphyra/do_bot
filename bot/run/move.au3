@@ -65,7 +65,7 @@ Func isMove()
    local $x, $y
    local $imageFound =  _ImageSearchArea($MINI_MAP_NO_MOVE_FILE, 0, $ix1, $iy1, $ix2, $iy2, $x, $y, 10)
 
-   if $moveStarted + 60 < getTimeStamp() Then
+   if Abs($moveStarted + 60 < - getTimeStamp()) > 60 Then
 	  writeLog("The ship was moving more than 60 seconds.", $LEVEL_WARN)
 	  return False
    EndIf
