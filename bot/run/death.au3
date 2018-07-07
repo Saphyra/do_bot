@@ -13,6 +13,8 @@ Global COnst $REPAIR_AT = IniRead($SETTINGS_INI_FILE, "death", "repair_at", 0)
 Global Const $REPAIR_SHIP_ON_DEATH = IniRead($SETTINGS_INI_FILE, "death", "repair_ship_on_death", $GUI_UNCHECKED)
 Global Const $WAIT_BEFORE_REPAIR_SECONDS = IniRead($SETTINGS_INI_FILE, "death", "wait_before_repair_seconds", 10)
 
+Global Const $ALARM_WHEN_DEATH_ENABLED = IniRead($SETTINGS_INI_FILE, "death", "alarm_when_death", $GUI_UNCHECKED) = $GUI_CHECKED
+
 Global $deathCount = 0
 
 Func checkDeath()
@@ -44,6 +46,9 @@ EndFunc
 
 Func repairShip()
    writeLog("Reapiring ship...", $LEVEL_WARN)
+   If $ALARM_WHEN_DEATH_ENABLED Then
+	  deathAlarm()
+   EndIf
    MsgBox(0, "Ship is dead.", "Ship is dead. Will be repaired in " & $WAIT_BEFORE_REPAIR_SECONDS & " seconds.", $WAIT_BEFORE_REPAIR_SECONDS)
    Sleep(1000)
    local $repairAt
@@ -77,4 +82,12 @@ Func repairShip()
 	  MsgBox(0, "Not Found", $repairAt & " image not found.")
 	  returnToGui()
    EndIf
+EndFunc
+
+Func deathAlarm()
+   local $i
+   For $i = 1 To 5
+	  Beep()
+	  Beep(1000)
+   Next
 EndFunc

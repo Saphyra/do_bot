@@ -8,9 +8,6 @@ GUI
     DEV-31
         - LogOut if PET not repairable
         - Configurable
-    DEV-32
-        - Alarm voice upon death
-        - Configurable
     DEV-37
         - Return to cloak mode
         - Configurable
@@ -105,6 +102,9 @@ GUI
         - Return from init mode upon exception
     DEV-29
         - Gui settings page for death/petdeath
+    DEV-32
+        - Alarm voice upon death
+        - Configurable
     DEV-33
         - Retry init upon fail
     DEV-34
