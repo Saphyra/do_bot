@@ -24,11 +24,6 @@ GUI
         - Go back to the map upon death
     DEV-41
         - Escape upon enemy attack
-    DEV-42
-        - Show statistics when exit
-            - Run time
-            - deathCount
-            - pet deathCount
 ============== DONE =================
     DEV-1
         - Create GUI window
@@ -120,6 +115,11 @@ GUI
         - Improve path searcher algorithm
     DEV-42
         - Death counts back to 0 when push start button
+    DEV-42
+        - Show statistics when exit
+            - Run time
+            - deathCount
+            - pet deathCount
     DEV-43
         - Collect boxes by hand (while move)
     DEV-44
