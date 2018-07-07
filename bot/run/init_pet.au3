@@ -25,6 +25,7 @@ Func initPet($needOpen = True)
 	  local $openResult = True
 	  if $needOpen = True Then
 		 $openResult = openPetWindow()
+		 $needOpen = False
 	  EndIf
 
 	  If Not $openResult Then

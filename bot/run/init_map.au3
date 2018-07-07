@@ -15,6 +15,7 @@ Func initMiniMap($needOpen = True)
 	  local $openResult = True
 	  If $needOpen = True Then
 		 $openResult = openMiniMap()
+		 $needOpen = False
 	  EndIf
 
 	  If Not $openResult Then
