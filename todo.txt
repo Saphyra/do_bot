@@ -29,8 +29,6 @@ GUI
             - Run time
             - deathCount
             - pet deathCount
-    DEV-44
-        - General Settings GUI page
 ============== DONE =================
     DEV-1
         - Create GUI window
@@ -124,3 +122,5 @@ GUI
         - Death counts back to 0 when push start button
     DEV-43
         - Collect boxes by hand (while move)
+    DEV-44
+        - General Settings GUI page
