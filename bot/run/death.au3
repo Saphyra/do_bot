@@ -7,6 +7,8 @@ Global Const $SHIP_REPAIR_BUTTON_FILE = getFilePath("ship_repair_button")
 Global Const $REPAIR_AT_BASE_FILE = getFilePath("repair_at_base")
 Global Const $REPAIR_AT_GATE_FILE = getFilePath("repair_at_gate")
 Global Const $REPAIR_AT_SPOT_FILE = getFilePath("repair_at_spot")
+Global Const $CLOAK_10_FILE = getFilePath("cloak_10")
+Global Const $CLOAK_50_FILE = getFilePath("cloak_50")
 
 Global Const $MAX_SHIP_DEATH_COUNT = IniRead($SETTINGS_INI_FILE, "death", "max_ship_death_count", 0)
 Global COnst $REPAIR_AT = IniRead($SETTINGS_INI_FILE, "death", "repair_at", 0)
@@ -14,6 +16,7 @@ Global Const $REPAIR_SHIP_ON_DEATH = IniRead($SETTINGS_INI_FILE, "death", "repai
 Global Const $WAIT_BEFORE_REPAIR_SECONDS = IniRead($SETTINGS_INI_FILE, "death", "wait_before_repair_seconds", 10)
 
 Global Const $ALARM_WHEN_DEATH_ENABLED = IniRead($SETTINGS_INI_FILE, "death", "alarm_when_death", $GUI_UNCHECKED) = $GUI_CHECKED
+Global Const $USE_CLOAK_WHEN_DEATH_ENABLED = IniRead($SETTINGS_INI_FILE, "death", "use_cloak_when_death", $GUI_CHECKED) = $GUI_CHECKED
 
 Global $deathCount = 0
 
@@ -72,6 +75,9 @@ Func repairShip()
 		 writeLog("Clicking on repair button...", $LEVEL_INFO)
 		 Click($bx, $by)
 		 Sleep(5000)
+		 If $USE_CLOAK_WHEN_DEATH_ENABLED Then
+			useCloak()
+		 EndIf
 	  Else
 		 writeLog("Ship repair button not found.", $LEVEL_ERROR)
 		 MsgBox(0, "Not found", "Ship repair button not found.")
@@ -90,4 +96,14 @@ Func deathAlarm()
 	  Beep()
 	  Beep(1000)
    Next
+EndFunc
+
+Func useCloak()
+   local $x, $y
+   If _ImageSearch($CLOAK_10_FILE, 1, $x, $y, 50) Or _ImageSearch($CLOAK_50_FILE, 1, $x, $y, 50) Then
+	  writeLog("Activating cloak...", $LEVEL_INFO)
+	  Click($x, $y)
+   Else
+	  writeLog("Cloak not found.", $LEVEL_ERROR)
+   EndIf
 EndFunc

@@ -21,6 +21,7 @@ GUI
         - Go back to the map upon death
     DEV-41
         - Escape upon enemy attack
+    
 ============== DONE =================
     DEV-1
         - Create GUI window
@@ -124,3 +125,6 @@ GUI
         - Collect boxes by hand (while move)
     DEV-44
         - General Settings GUI page
+    DEV-45
+        - Reuse cloak upon death
+        - Configurable

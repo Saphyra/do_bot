@@ -21,6 +21,7 @@ Func init()
 	  Return False
    EndIf
 
+   Sleep(1000)
    Return True
 EndFunc
 

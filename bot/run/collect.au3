@@ -28,7 +28,7 @@ Func collectBox()
 
 	  Sleep(200)
 	  idleTillMove(False)
-	  Sleep(200)
+	  Sleep(1000)
    Next
 
    writeLog("No more bonus boxes in the search area.", $LEVEL_INFO)
