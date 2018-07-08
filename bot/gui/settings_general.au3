@@ -4,6 +4,7 @@ Func createGeneralSettingsTab()
 
    addShoulCollectByHand()
    addAlarmEnabledWhenDeath()
+   addUseCloakWhenDeath()
 
    addGeneralSettingsSaveButton()
 EndFunc
@@ -30,6 +31,17 @@ Func addAlarmEnabledWhenDeath()
    GUICtrlSetState($ALARM_WHEN_DEATH_CHECKBOX_ID, IniRead($SETTINGS_INI_FILE, "death", "alarm_when_death", $GUI_UNCHECKED))
 EndFunc
 
+Func addUseCloakWhenDeath()
+   writeLog("Creating 'Use cloak when death' checkbox...", $LEVEL_INFO)
+
+   local $x = $DEFAULT_LABEL_MARGIN
+   local $y = 90
+   local $width = 250
+   Global Const $USE_CLOAK_WHEN_DEATH_CHECKBOX_ID = GUICtrlCreateCheckbox("Use cloak when death", $x, $y, $width, $DEFAULT_LABEL_HEIGHT)
+
+   GUICtrlSetState($USE_CLOAK_WHEN_DEATH_CHECKBOX_ID, IniRead($SETTINGS_INI_FILE, "death", "use_cloak_when_death", $GUI_CHECKED))
+EndFunc
+
 Func addGeneralSettingsSaveButton()
    writeLog("Creating generalSettingsSaveButton", $LEVEL_INFO)
    local $left = $GUI_WIDTH - 100
@@ -47,6 +59,7 @@ EndFunc
 Func saveGeneralSettings()
    IniWrite($SETTINGS_INI_FILE, "general", "collect_while_move", GUICtrlRead($SHOULD_COLLECT_BY_HAND_CHECKBOX_ID))
    IniWrite($SETTINGS_INI_FILE, "death", "alarm_when_death", GUICtrlRead($ALARM_WHEN_DEATH_CHECKBOX_ID))
+   IniWrite($SETTINGS_INI_FILE, "death", "use_cloak_when_death", GUICtrlRead($USE_CLOAK_WHEN_DEATH_CHECKBOX_ID))
 
    MsgBox(0, "Saved", "Settings saved.", 5)
 EndFunc
