@@ -1,19 +1,5 @@
 Global Const $PET_COLLECTOR_GEAR_ACTIVATED_FILE = getFilePath("pet_collector_gear_active")
 
-Func checkPet()
-   writeLog("Checking PET status...", $LEVEL_INFO)
-
-   If Not isCollectorActivated() Then
-	  writeLog("Collector gear is not activated.", $LEVEL_WARN)
-
-	  If Not initPet(isNeedToOpenPetWindow()) Then
-		 writeLog("PET initialization failed. Exiting...", $LEVEL_ERROR)
-		 MsgBox(0, "Error", "PET initialization failed. Exiting...")
-		 returnToGui()
-	  EndIf
-   EndIf
-EndFunc
-
 Func isCollectorActivated()
    local $x, $y
    local $x1 = 210

@@ -1,4 +1,5 @@
 #include "collect.au3"
+#include "check.au3"
 #include "death.au3"
 #include "init.au3"
 #include "move.au3"
@@ -35,11 +36,10 @@ Func runProcess()
 
    writeLog("Processing a run state...", $LEVEL_DEBUG)
 
-   checkDeath()
-   checkPet()
+   checkWindowState()
+   collectBox()
    move()
    idleTillMove($shouldSearchForBoxesSetting)
-   collectBox()
 EndFunc
 
 Func resumeRun()

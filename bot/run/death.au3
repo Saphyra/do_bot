@@ -20,24 +20,6 @@ Global Const $USE_CLOAK_WHEN_DEATH_ENABLED = IniRead($SETTINGS_INI_FILE, "death"
 
 Global $deathCount = 0
 
-Func checkDeath()
-   If Not isShipDead() Then
-	  writeLog("Ship is alive.", $lEVEL_DEBUG)
-	  Return
-   EndIf
-
-   $deathCount += 1
-   writeLog("The ship is dead. Death count: " & $deathCount, $LEVEL_WARN)
-
-   If $MAX_SHIP_DEATH_COUNT = -1 OR $deathCount < $MAX_SHIP_DEATH_COUNT Then
-	  repairShip()
-   Else
-	  writeLog("Max ship death count reached. Exiting...", $LEVEL_WARN)
-	  MsgBox(0, "Too many death", "Max ship death count reached.")
-	  returnToGui()
-   EndIf
-EndFunc
-
 Func isShipDead()
    local $x, $y
    If _ImageSearch($SHIP_DESTROYED_FILE, 0, $x, $y, 50) Then

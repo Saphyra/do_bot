@@ -8,9 +8,6 @@ GUI
     DEV-31
         - LogOut if PET not repairable
         - Configurable
-    DEV-37
-        - Return to cloak mode
-        - Configurable
     DEV-38
         - Use ultimate cloak
             - After death
@@ -21,7 +18,11 @@ GUI
         - Go back to the map upon death
     DEV-41
         - Escape upon enemy attack
-    
+    DEV-46
+        - Reconnect
+        - Configurable
+    DEV-47
+        - Multi-thread
 ============== DONE =================
     DEV-1
         - Create GUI window

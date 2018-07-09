@@ -6,7 +6,10 @@ Global $miniMapBaseY1
 Global $miniMapBaseX2
 Global $miniMapBaseY2
 
-Func initMiniMap($needOpen = True)
+Func initMiniMap()
+   local $x, $y
+   local $needOpen = _ImageSearch($MINI_MAP_FILE, 0, $x, $y, 150) = 0
+
    local $attempts
    For $attempts = 1 To 3
 	  writeLog("Initializing minimap... Attemots: " & $attempts, $LEVEL_INFO)
@@ -77,6 +80,9 @@ Func resizeMiniMap()
    local $x1 = $miniMapX + 150
    local $y1 = $miniMapY
    local $x2 = $miniMapX + 500
+   If $x2 > @DesktopWidth Then
+	  $x2 = @DesktopWidth
+   EndIf
    local $y2 = $miniMapY + 40
 
    local $i, $x, $y

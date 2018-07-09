@@ -26,17 +26,6 @@ Func move()
 	  Return
    EndIf
 
-   If Not isMiniMapWellLocated() Then
-	  writeLog("Minimap is not at the right position.", $LEVEL_WARN)
-	  local $x, $y
-	  If Not initMiniMap(_ImageSearch($MINI_MAP_FILE, 0, $x, $y, 150) = 0) Then
-		 writeLog("Minimap initialization failed. Exiting...", $LEVEL_ERROR)
-		 MsgBox(0, "Error", "Minimap initialization failed. Exiting...")
-		 returnToGui()
-		 Return
-	  EndIf
-   EndIf
-
    writeLog("Moving to coordinates: " & $xCoord & "/" & $yCoord, $LEVEL_INFO)
    Click($xCoord, $yCoord)
    $moveStarted = getTimeStamp()
@@ -75,15 +64,10 @@ Func isMove()
    return $result
 EndFunc
 
-Func isMiniMapWellLocated()
-   local $x, $y
-   Return _ImageSearchArea($MINI_MAP_FILE, 0, $miniMapBaseX1, $miniMapBasey1, $miniMapBaseX2, $miniMapBaseY2, $x, $y, 150) = 1
-EndFunc
-
 Func getNextCoordinates()
    writeLog("Setting the coordinates of the next move.", $LEVEL_INFO)
    If Not attemptNextCoordinates() Then
-	  writeLog("Cleaning coordinate stroage. Size: " & UBound($coordinates), $LEVEL_WARN)
+	  writeLog("Cleaning coordinate stroage. Size: " & UBound($coordinates), $LEVEL_INFO)
 	  Global $coordinates = []
 	  attemptNextCoordinates()
    EndIf
