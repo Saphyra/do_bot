@@ -18,9 +18,6 @@ GUI
         - Go back to the map upon death
     DEV-41
         - Escape upon enemy attack
-    DEV-46
-        - Reconnect
-        - Configurable
     DEV-47
         - Multi-thread
 ============== DONE =================
@@ -128,4 +125,7 @@ GUI
         - General Settings GUI page
     DEV-45
         - Reuse cloak upon death
+        - Configurable
+    DEV-46
+        - Reconnect
         - Configurable
