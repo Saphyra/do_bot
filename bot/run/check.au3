@@ -17,7 +17,7 @@ Func checkConnection()
 	  writeLog("Connection lost.", $LEVEL_WARN)
 	  If $RECONNECTION_ENABLED Then
 		 writeLog("Reconnecting...", $lEVEL_WARN)
-		 MsgBox(0, "Connection lost.", "Reconnecting in 60 seconds.")
+		 MsgBox(0, "Connection lost.", "Reconnecting in 60 seconds.", 60)
 		 Click($x, $y)
 		 Sleep(5000)
 		 closeTabs()
