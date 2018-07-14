@@ -36,9 +36,8 @@ Func checkDeath()
 	  Return
    EndIf
 
-   repairShip()
-   writeLog("The ship is dead. Death count: " & $deathCount, $LEVEL_WARN)
    $deathCount += 1
+   writeLog("The ship is dead. Death count: " & $deathCount, $LEVEL_WARN)
 
    If $MAX_SHIP_DEATH_COUNT = 0 OR $deathCount < $MAX_SHIP_DEATH_COUNT Then
 	  repairShip()
