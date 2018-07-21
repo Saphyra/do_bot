@@ -19,12 +19,12 @@ Func startBot()
    $runStarted = getTimeStamp()
    Global $shouldSearchForBoxesSetting = IniRead($SETTINGS_INI_FILE, "general", "collect_while_move", $GUI_UNCHECKED) = $GUI_CHECKED
 
+   $runPaused = False
+   $scriptState = $STATE_RUN
+
    If Not init() Then
 	  Return
    EndIf
-
-   $runPaused = False
-   $scriptState = $STATE_RUN
 EndFunc
 
 Func runProcess()
