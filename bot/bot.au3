@@ -46,7 +46,7 @@ func idle()
 EndFunc
 
 Func shouldRun()
-   If $scriptState Not $STATE_RUN Then
+   If $scriptState <> $STATE_RUN Then
 	  writeLog("Script is not in run state. Method should not run.", $LEVEL_DEBUG)
 	  Return False
    ElseIf $runPaused Then
