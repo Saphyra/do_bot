@@ -38,6 +38,12 @@ Func idleTillMove($shouldSearchBoxes = True)
    local $isBoxFound = False
    While isMove() = True
 	  Sleep(100)
+
+	  If isShipDead() Then
+		 writeLog("The ship was killed while moving.", $LEVEL_INFO)
+		 ExitLoop
+	  EndIf
+
 	  If $shouldSearchBoxes = True Then
 		 $isBoxFound = searchForBonusBox()
 	  EndIf
