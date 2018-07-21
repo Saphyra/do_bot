@@ -30,6 +30,10 @@ Func isShipDead()
 EndFunc
 
 Func repairShip()
+   If Not shouldRun() Then
+	  Return
+   EndIf
+
    writeLog("Reapiring ship...", $LEVEL_WARN)
    If $ALARM_WHEN_DEATH_ENABLED Then
 	  deathAlarm()
@@ -73,6 +77,10 @@ Func repairShip()
 EndFunc
 
 Func deathAlarm()
+   If Not shouldRun() Then
+	  Return
+   EndIf
+
    local $i
    For $i = 1 To 5
 	  Beep()
@@ -81,6 +89,10 @@ Func deathAlarm()
 EndFunc
 
 Func useCloak()
+   If Not shouldRun() Then
+	  Return
+   EndIf
+
    local $x, $y
    If _ImageSearch($CLOAK_10_FILE, 1, $x, $y, 50) Or _ImageSearch($CLOAK_50_FILE, 1, $x, $y, 50) Then
 	  writeLog("Activating cloak...", $LEVEL_INFO)

@@ -3,6 +3,10 @@ Global Const $CONNECTION_LOST_FILE = getFilePath("connection_lost")
 Global Const $RECONNECTION_ENABLED = IniRead($SETTINGS_INI_FILE, "general", "reconnection_enabled", $GUI_UNCHECKED)
 
 Func checkWindowState()
+   If Not shouldRun() Then
+	  Return
+   EndIf
+
    checkConnection()
    checkDeath()
    checkMiniMap()
@@ -10,6 +14,10 @@ Func checkWindowState()
 EndFunc
 
 Func checkConnection()
+   If Not shouldRun() Then
+	  Return
+   EndIf
+
    writeLog("Checking connection...", $LEVEL_DEBUG)
 
    local $x, $y
@@ -31,6 +39,10 @@ Func checkConnection()
 EndFunc
 
 Func checkDeath()
+   If Not shouldRun() Then
+	  Return
+   EndIf
+
    If Not isShipDead() Then
 	  writeLog("Ship is alive.", $lEVEL_DEBUG)
 	  Return
@@ -49,6 +61,10 @@ Func checkDeath()
 EndFunc
 
 Func checkMiniMap()
+   If Not shouldRun() Then
+	  Return
+   EndIf
+
    If Not isMiniMapWellLocated() Then
 	  writeLog("Minimap is not at the right position.", $LEVEL_WARN)
 	  local $x, $y
@@ -67,6 +83,10 @@ Func isMiniMapWellLocated()
 EndFunc
 
 Func checkPet()
+   If Not shouldRun() Then
+	  Return
+   EndIf
+
    writeLog("Checking PET status...", $LEVEL_INFO)
 
    If Not isCollectorActivated() Then

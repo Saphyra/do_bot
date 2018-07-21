@@ -20,8 +20,8 @@ GUI
         - Escape upon enemy attack
     DEV-47
         - Multi-thread
-    DEV-49
-        - Check run status when entering a method
+    DEV-50
+        - Countdown when msgbox delay
 ============== DONE =================
     DEV-1
         - Create GUI window
@@ -133,3 +133,5 @@ GUI
         - Configurable
     DEV-48
         - Check death while moving
+    DEV-49
+        - Check run status when entering a method

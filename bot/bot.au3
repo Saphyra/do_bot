@@ -44,3 +44,16 @@ func idle()
 	  Sleep(100)
    WEnd
 EndFunc
+
+Func shouldRun()
+   If $scriptState Not $STATE_RUN Then
+	  writeLog("Script is not in run state. Method should not run.", $LEVEL_DEBUG)
+	  Return False
+   ElseIf $runPaused Then
+	  writeLog("Script is paused. Method should not run.", $LEVEL_DEBUG)
+	  Return False
+   Else
+	  writeLog("Method should run.", $LEVEL_DEBUG)
+	  Return True
+   EndIf
+EndFunc

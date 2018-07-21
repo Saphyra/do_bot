@@ -17,6 +17,10 @@ Global Const $PET_ACTIVATE_Y2 = 275
 Global $petDeathCount = 0
 
 Func initPet($needOpen = True)
+   If Not shouldRun() Then
+	  Return
+   EndIf
+
    local $attempts
    For $attempts = 1 To 3
 	  writeLog("Initializing PET... Attempts: " & $attempts, $LEVEL_INFO)
@@ -65,6 +69,10 @@ Func initPet($needOpen = True)
 EndFunc
 
 Func openPetWindow()
+   If Not shouldRun() Then
+	  Return
+   EndIf
+
    writeLog("Opening PET window", $LEVEL_INFO)
    local $x, $y
 
@@ -80,6 +88,10 @@ Func openPetWindow()
 EndFunc
 
 Func relocatePetWindow()
+   If Not shouldRun() Then
+	  Return
+   EndIf
+
    writeLog("Relocating PET window...", $LEVEL_INFO)
    local $x, $y
 
@@ -99,6 +111,10 @@ Func relocatePetWindow()
 EndFunc
 
 Func repairPet()
+   If Not shouldRun() Then
+	  Return
+   EndIf
+
    writeLog("Checking PET health...", $LEVEL_INFO)
    local $x, $y
    If $REPAIR_PET_ENABLED = $GUI_CHECKED Then
@@ -121,6 +137,10 @@ Func repairPet()
 EndFunc
 
 Func turnOnPet()
+   If Not shouldRun() Then
+	  Return
+   EndIf
+
    writeLog("Turning on PET...", $LEVEL_INFO)
    local $onx, $ony
 
@@ -141,6 +161,10 @@ Func turnOnPet()
 EndFunc
 
 Func openPetGearMenu()
+   If Not shouldRun() Then
+	  Return
+   EndIf
+
    writeLog("Opening PET gear menu...", $LEVEL_INFO)
    local $x, $y
 
@@ -161,6 +185,10 @@ Func openPetGearMenu()
 EndFunc
 
 Func activateCollectorGear()
+   If Not shouldRun() Then
+	  Return
+   EndIf
+
    writeLog("Activating collector gear...", $LEVEL_INFO)
    local $x, $y
 

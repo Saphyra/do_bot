@@ -7,6 +7,10 @@ Global $miniMapBaseX2
 Global $miniMapBaseY2
 
 Func initMiniMap()
+   If Not shouldRun() Then
+	  Return
+   EndIf
+
    local $x, $y
    local $needOpen = _ImageSearch($MINI_MAP_FILE, 0, $x, $y, 150) = 0
 
@@ -48,6 +52,10 @@ Func initMiniMap()
 EndFunc
 
 Func openMiniMap()
+   If Not shouldRun() Then
+	  Return
+   EndIf
+
    writeLog("Opening minimap...", $LEVEL_INFO)
 
    local $miniMapMenuButtonFile = getFilePath("mini_map_menu_button")
@@ -63,6 +71,10 @@ Func openMiniMap()
 EndFunc
 
 Func resizeMiniMap()
+   If Not shouldRun() Then
+	  Return
+   EndIf
+
    writeLog("Resizing minimap", $LEVEL_INFO)
 
    local $miniMapX, $miniMapY
@@ -109,6 +121,10 @@ Func resizeMiniMap()
 EndFunc
 
 Func relocateMiniMap()
+   If Not shouldRun() Then
+	  Return
+   EndIf
+
    writeLog("Relocating minimap...", $LEVEL_INFO)
    local $miniMapX, $miniMapY
 

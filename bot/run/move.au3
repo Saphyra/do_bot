@@ -21,8 +21,7 @@ Global $xCoord = $mmx1
 Global $yCoord = $mmy1
 
 Func move()
-   If Not $scriptState = $STATE_RUN Then
-	  writeLog("It is not RUN state. Returning...", $LEVEL_DEBUG)
+   If Not shouldRun() Then
 	  Return
    EndIf
 
@@ -34,10 +33,19 @@ Func move()
 EndFunc
 
 Func idleTillMove($shouldSearchBoxes = True)
+   If Not shouldRun() Then
+	  Return
+   EndIf
+
    writeLog("Waiting for the ship reaches the target position", $LEVEL_INFO)
+
    local $isBoxFound = False
    While isMove() = True
 	  Sleep(100)
+
+	  If Not shouldRun() Then
+		 Return
+	  EndIf
 
 	  If isShipDead() Then
 		 writeLog("The ship was killed while moving.", $LEVEL_INFO)

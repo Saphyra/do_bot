@@ -6,6 +6,10 @@ Global Const $BBX2 = @DesktopWidth - 100
 Global Const $BBY2 = @DesktopHeight - 100
 
 Func collectBox()
+   If Not shouldRun() Then
+	  Return
+   EndIf
+
    writeLog("Collecting bonus boxes near the target position...", $LEVEL_INFO)
    local $x, $y
    local $lastX = 0, $lastY = 0
@@ -35,6 +39,10 @@ Func collectBox()
 EndFunc
 
 func searchForBonusBox()
+   If Not shouldRun() Then
+	  Return
+   EndIf
+
    local $x, $y
    if _ImageSearchArea($BONUS_BOX_FILE, 1, $BBX1, $BBY1, $BBX2, $BBY2, $x, $y, 20) Then
 	  writeLog("Bonus box found at " & $x & "/" & $y, $LEVEL_INFO)

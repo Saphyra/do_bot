@@ -28,9 +28,7 @@ Func startBot()
 EndFunc
 
 Func runProcess()
-   If $runPaused = True Then
-	  writeLog("Bot is paused.", $LEVEL_DEBUG)
-	  Sleep(1000)
+   If Not shouldRun() Then
 	  Return
    EndIf
 

@@ -2,6 +2,10 @@
 #include "init_pet.au3"
 
 Func init()
+   If Not shouldRun() Then
+	  Return
+   EndIf
+
    writeLog("Initializing game windows...", $LEVEL_INFO)
 
    closeTabs()
@@ -26,6 +30,10 @@ Func init()
 EndFunc
 
 Func closeTabs()
+   If Not shouldRun() Then
+	  Return
+   EndIf
+
    writeLog("Closing all tabs...", $LEVEL_INFO)
 
    MouseClick("left", @DesktopWidth / 2, @DesktopHeight / 2)
@@ -34,6 +42,10 @@ Func closeTabs()
 EndFunc
 
 Func initMove()
+   If Not shouldRun() Then
+	  Return
+   EndIf
+
    local $x
    If Round(Random(0, 1)) = 0 Then
 	  $x = @DesktopWidth / 2 - 200
