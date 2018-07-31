@@ -92,7 +92,7 @@ Func checkPet()
    If Not isCollectorActivated() Then
 	  writeLog("Collector gear is not activated.", $LEVEL_WARN)
 
-	  If Not initPet(isNeedToOpenPetWindow()) Then
+	  If Not initPet() Then
 		 writeLog("PET initialization failed. Exiting...", $LEVEL_ERROR)
 		 MsgBox(0, "Error", "PET initialization failed. Exiting...")
 		 returnToGui()

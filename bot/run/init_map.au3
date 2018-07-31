@@ -12,12 +12,13 @@ Func initMiniMap()
    EndIf
 
    local $x, $y
-   local $needOpen = _ImageSearch($MINI_MAP_FILE, 0, $x, $y, 150) = 0
 
    local $attempts
    For $attempts = 1 To 3
 	  writeLog("Initializing minimap... Attemots: " & $attempts, $LEVEL_INFO)
 	  checkDeath()
+	  local $needOpen = _ImageSearch($MINI_MAP_FILE, 0, $x, $y, 150) = 0
+
 
 	  local $openResult = True
 	  If $needOpen = True Then

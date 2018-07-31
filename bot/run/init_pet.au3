@@ -16,7 +16,7 @@ Global Const $PET_ACTIVATE_Y2 = 275
 
 Global $petDeathCount = 0
 
-Func initPet($needOpen = True)
+Func initPet()
    If Not shouldRun() Then
 	  Return
    EndIf
@@ -25,6 +25,8 @@ Func initPet($needOpen = True)
    For $attempts = 1 To 3
 	  writeLog("Initializing PET... Attempts: " & $attempts, $LEVEL_INFO)
 	  checkDeath()
+
+	  local $needOpen = isNeedToOpenPetWindow()
 
 	  local $openResult = True
 	  if $needOpen = True Then
@@ -66,6 +68,12 @@ Func initPet($needOpen = True)
    Next
 
    Return False
+EndFunc
+
+Func isNeedToOpenPetWindow()
+   local $x, $y
+   checkDeath()
+   Return _ImageSearch($PET_FILE, 0, $x, $y, 150) = 0
 EndFunc
 
 Func openPetWindow()

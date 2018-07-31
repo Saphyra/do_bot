@@ -13,9 +13,3 @@ Func isCollectorActivated()
 	  Return False
    EndIf
 EndFunc
-
-Func isNeedToOpenPetWindow()
-   local $x, $y
-   checkDeath()
-   Return _ImageSearch($PET_FILE, 0, $x, $y, 150) = 0
-EndFunc

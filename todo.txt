@@ -22,6 +22,8 @@ GUI
         - Multi-thread
     DEV-50
         - Countdown when msgbox delay
+    DEV-51
+        - No log when not enabled, but console / file is enabled
 ============== DONE =================
     DEV-1
         - Create GUI window
