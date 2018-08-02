@@ -10,9 +10,7 @@ Func writeLog($message, $level = $LEVEL_INFO)
 
    local $text = createTextFromLogMessage($message, $level)
 
-   If isLogToConsoleEnabled($level) Then
-	  ConsoleWrite($text)
-   EndIf
+   logToConsole($text, $level)
 
    if isLogToFileEnabled($level) Then
 	  Switch $level
@@ -31,8 +29,6 @@ Func writeLog($message, $level = $LEVEL_INFO)
 			logToWarn($text)
 			logToError($text)
 	  EndSwitch
-
-
    EndIf
 
 EndFunc
@@ -66,6 +62,9 @@ Func readLogProperty($property, $default = "")
 EndFunc
 
 Func logToDebug($text)
+   If Not isLogLevelEnabled($LEVEL_DEBUG) Then
+	  Return
+   EndIf
    If isLogToFileEnabled($LEVEL_DEBUG) Then
 	  local $file = getFileOfLevel($LEVEL_DEBUG)
 	  FileWrite($file, $text)
@@ -73,6 +72,9 @@ Func logToDebug($text)
 EndFunc
 
 Func logToInfo($text)
+   If Not isLogLevelEnabled($LEVEL_INFO) Then
+	  Return
+   EndIf
    If isLogToFileEnabled($lEVEL_INFO) Then
 	  local $file = getFileOfLevel($lEVEL_INFO)
 	  FileWrite($file, $text)
@@ -80,6 +82,9 @@ Func logToInfo($text)
 EndFunc
 
 Func logToWarn($text)
+   If Not isLogLevelEnabled($LEVEL_WARN) Then
+	  Return
+   EndIf
    If isLogToFileEnabled($lEVEL_WARN) Then
 	  local $file = getFileOfLevel($lEVEL_WARN)
 	  FileWrite($file, $text)
@@ -87,8 +92,60 @@ Func logToWarn($text)
 EndFunc
 
 Func logToError($text)
+   If Not isLogLevelEnabled($LEVEL_ERROR) Then
+	  Return
+   EndIf
    If isLogToFileEnabled($lEVEL_ERROR) Then
 	  local $file = getFileOfLevel($lEVEL_ERROR)
 	  FileWrite($file, $text)
    EndIf
+EndFunc
+
+Func logToConsole($text, $level)
+   Switch $level
+	  Case $LEVEL_DEBUG
+		 If isLogLevelEnabled($LEVEL_DEBUG) And isLogToConsoleEnabled($LEVEL_DEBUG) Then
+			ConsoleWrite($text)
+			Return
+		 EndIf
+	  Case $LEVEL_INFO
+		 If isLogLevelEnabled($LEVEL_DEBUG) And isLogToConsoleEnabled($LEVEL_DEBUG) Then
+			ConsoleWrite($text)
+			Return
+		 EndIf
+		 If isLogLevelEnabled($LEVEL_INFO) And isLogToConsoleEnabled($LEVEL_INFO) Then
+			ConsoleWrite($text)
+			Return
+		 EndIf
+	  Case $LEVEL_WARN
+		 If isLogLevelEnabled($LEVEL_DEBUG) And isLogToConsoleEnabled($LEVEL_DEBUG) Then
+			ConsoleWrite($text)
+			Return
+		 EndIf
+		 If isLogLevelEnabled($LEVEL_INFO) And isLogToConsoleEnabled($LEVEL_INFO) Then
+			ConsoleWrite($text)
+			Return
+		 EndIf
+		 If isLogLevelEnabled($LEVEL_WARN) And isLogToConsoleEnabled($LEVEL_WARN) Then
+			ConsoleWrite($text)
+			Return
+		 EndIf
+	  Case $LEVEL_ERROR
+		 If isLogLevelEnabled($LEVEL_DEBUG) And isLogToConsoleEnabled($LEVEL_DEBUG) Then
+			ConsoleWrite($text)
+			Return
+		 EndIf
+		 If isLogLevelEnabled($LEVEL_INFO) And isLogToConsoleEnabled($LEVEL_INFO) Then
+			ConsoleWrite($text)
+			Return
+		 EndIf
+		 If isLogLevelEnabled($LEVEL_WARN) And isLogToConsoleEnabled($LEVEL_WARN) Then
+			ConsoleWrite($text)
+			Return
+		 EndIf
+		 If isLogLevelEnabled($LEVEL_ERROR) And isLogToConsoleEnabled($LEVEL_ERROR) Then
+			ConsoleWrite($text)
+			Return
+		 EndIf
+   EndSwitch
 EndFunc
