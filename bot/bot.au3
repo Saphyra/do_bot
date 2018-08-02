@@ -28,6 +28,7 @@ Global Const $STATE_RUN = 1
 local $scriptState = $STATE_GUI
 
 writeLog("Starting...", $LEVEL_INFO)
+HotKeySet("{F2}", "showStatistics")
 
 startUp()
 createGui()
