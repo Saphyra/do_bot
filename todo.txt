@@ -3,7 +3,7 @@ GUI
         - Recognize enemy cbs exists on the map
         - Configurable behavior:
             - Ignore
-            - Go to other map
+            - Go to other map DEPENDS ON DEV-39
             - Turn off PET
     DEV-31
         - LogOut if PET not repairable
@@ -11,17 +11,21 @@ GUI
     DEV-38
         - Use ultimate cloak
             - After death
-            - Upon enemy attack
+            - Upon enemy attack DEPENDS ON DEV-40
     DEV-39
         - Recognize actual map
     DEV-40
-        - Go back to the map upon death
+        - Go back to the map upon death DEPENDS ON DEV-39
     DEV-41
-        - Escape upon enemy attack
+        - Escape upon enemy attack DEPENDS ON DEV-53
     DEV-47
         - Multi-thread
     DEV-50
         - Countdown when msgbox delay
+    DEV-53
+        - Recognize health DEPENDS ON DEV-54
+    DEV-54
+        - Handle ship tab
     
 ============== DONE =================
     DEV-1
