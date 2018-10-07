@@ -130,7 +130,7 @@ Func repairPet()
 		 $petDeathCount += 1
 		 writeLog("The PET is destroyed. petDeadthCount: " & $petDeathCount, $LEVEL_WARN)
 
-		 If $MAX_PET_DEATH_COUNT = -1 OR $petDeathCount < $MAX_PET_DEATH_COUNT Then
+		 If $MAX_PET_DEATH_COUNT = 0 OR $petDeathCount < $MAX_PET_DEATH_COUNT Then
 			writeLog("Repairing pet...", $LEVEL_WARN)
 			Click($x, $y)
 			Sleep(500)
