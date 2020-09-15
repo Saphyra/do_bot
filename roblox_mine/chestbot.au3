@@ -39,11 +39,13 @@ Func idle()
 EndFunc
 
 Func start()
-   MsgBox(0, "Starting", "Starting...", 2)
    While true
-	  MouseClick("left", $tx, $ty)
+	  MouseClick("left", Random($tx - 10, $tx + 10), Random($ty - 10, $ty + 10))
 	  Sleep(500)
-	  MouseClick("left", $cx, $cy)
+	  MouseMove(Random($cx - 25, $cx + 25), Random($cy - 25, $cy + 25))
+	  MouseDown("left")
+	  Sleep(500)
+	  MouseUp("left")
 	  $counter = $counter + 1
 	  Sleep(7000)
    WEnd
